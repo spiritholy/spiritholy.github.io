@@ -1,0 +1,623 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="应用打包为了减轻Windows上的长路径问题，些微加快require，并且从粗略的监测中隐藏你的源码，你能够选择打包你的app到一个asar存档中并对你的源码做一点点改变。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Electron发布">
+<meta property="og:url" content="http://yoursite.com/2016/09/05/Electron打包/index.html">
+<meta property="og:site_name" content="程序与生活">
+<meta property="og:description" content="应用打包为了减轻Windows上的长路径问题，些微加快require，并且从粗略的监测中隐藏你的源码，你能够选择打包你的app到一个asar存档中并对你的源码做一点点改变。">
+<meta property="og:updated_time" content="2017-02-21T10:57:18.136Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Electron发布">
+<meta name="twitter:description" content="应用打包为了减轻Windows上的长路径问题，些微加快require，并且从粗略的监测中隐藏你的源码，你能够选择打包你的app到一个asar存档中并对你的源码做一点点改变。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Electron发布 | 程序与生活 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">程序与生活</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Electron发布
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-05T00:00:00+08:00" content="2016-09-05">
+              2016-09-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/05/Electron打包/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/05/Electron打包/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="应用打包"><a href="#应用打包" class="headerlink" title="应用打包"></a>应用打包</h2><p>为了减轻Windows上的长路径问题，些微加快<code>require</code>，并且从粗略的监测中隐藏你的源码，你能够选择打包你的app到一个<code>asar</code>存档中并对你的源码做一点点改变。</p>
+<a id="more"></a>
+<h3 id="生成asar存档"><a href="#生成asar存档" class="headerlink" title="生成asar存档"></a>生成<code>asar</code>存档</h3><p>一个<code>asar</code>存档是一个tar-like格式，连结文件到一个单一文件中。Electron能读从它中读二进制文件而不用解包整个文件。</p>
+<p>打包你的app到asar存档的步骤：</p>
+<h4 id="1-安装asar工具"><a href="#1-安装asar工具" class="headerlink" title="1.安装asar工具"></a>1.安装asar工具</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g asar</div></pre></td></tr></table></figure>
+<h4 id="2-使用asar-pack打包"><a href="#2-使用asar-pack打包" class="headerlink" title="2.使用asar pack打包"></a>2.使用<code>asar pack</code>打包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ asar pack your-app app.asar</div></pre></td></tr></table></figure>
+<h3 id="使用asar存档"><a href="#使用asar存档" class="headerlink" title="使用asar存档"></a>使用asar存档</h3><p>在Electron中有两组api：Node api由Node.js提供，Web api由Chromium提供。两种api都支持从asar存档中读文件。</p>
+<h4 id="Node-API"><a href="#Node-API" class="headerlink" title="Node API"></a>Node API</h4><p>作为Electron中的特殊补丁，Node api像<code>fs.readFile</code>和<code>require</code>将asar存档作为虚拟目录，而且将内部的文件看作正常的文件。</p>
+<p>例如，假设我们有一个<code>example.asar</code>存档在<code>/path/to</code>下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ asar list /path/to/example.asar</div><div class="line">/app.js</div><div class="line">/file.txt</div><div class="line">/dir/module.js</div><div class="line">/static/index.html</div><div class="line">/static/main.css</div><div class="line">/static/jquery.min.js</div></pre></td></tr></table></figure>
+<p>在asar存档中读一个文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs&apos;)</div><div class="line">fs.readFileSync(&apos;/path/to/example.asar/file.txt&apos;)</div></pre></td></tr></table></figure>
+<p>列出存档根目录下的所有文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs&apos;)</div><div class="line">fs.readdirSync(&apos;/path/to/example.asar&apos;)</div></pre></td></tr></table></figure>
+<p>从存档中使用一个模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(&apos;/path/to/example.asar/dir/module.js&apos;)</div></pre></td></tr></table></figure>
+<p>你也能在存档下使用<code>BrowserWindow</code>展示一个web页面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const &#123;BrowserWindow&#125; = require(&apos;electron&apos;)</div><div class="line">let win = new BrowserWindow(&#123;width: 800, height: 600&#125;)</div><div class="line">win.loadURL(&apos;file:///path/to/example.asar/static/index.html&apos;)</div></pre></td></tr></table></figure>
+<h4 id="Web-API"><a href="#Web-API" class="headerlink" title="Web API"></a>Web API</h4><p>在web页面中，存档中的文件能使用<code>file</code>协议请求。与Node api一样，<code>asar</code>存档被作为目录。</p>
+<p>例如，使用<code>$.get</code>来获取文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">let $ = require(&apos;./jquery.min.js&apos;)</div><div class="line">$.get(&apos;file:///path/to/example.asar/file.txt&apos;, (data) =&gt; &#123;</div><div class="line">  console.log(data)</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="将asar存档作为一个一般的文件"><a href="#将asar存档作为一个一般的文件" class="headerlink" title="将asar存档作为一个一般的文件"></a>将asar存档作为一个一般的文件</h4><p>在某些情况下像验证asar存档的校验和，我们需要将asar作为一个文件来读内容。为达成这个目的，你能使用内建的<code>original-fs</code>模块，它提供了原本的<code>fs</code>api并不支持<code>asar</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const originalFs = require(&apos;original-fs&apos;)</div><div class="line">originalFs.readFileSync(&apos;/path/to/example.asar&apos;)</div></pre></td></tr></table></figure>
+<p>你也能设置<code>process.noAsar</code>为<code>true</code>来禁止<code>fs</code>模块中<code>asar</code>的支持</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs&apos;)</div><div class="line">process.noAsar = true</div><div class="line">fs.readFileSync(&apos;/path/to/example.asar&apos;)</div></pre></td></tr></table></figure>
+<h3 id="Node-api的限制"><a href="#Node-api的限制" class="headerlink" title="Node api的限制"></a>Node api的限制</h3><p>尽管我们试图将asar存档能在Node api工作中如同目录，依然由于Node api的低级性质而又一些限制。</p>
+<h4 id="存档是只读的"><a href="#存档是只读的" class="headerlink" title="存档是只读的"></a>存档是只读的</h4><p>存档不能被修改，所以所有的修改文件的Node api将不能和asar工作。</p>
+<h4 id="工作目录不能设置为存档中的目录"><a href="#工作目录不能设置为存档中的目录" class="headerlink" title="工作目录不能设置为存档中的目录"></a>工作目录不能设置为存档中的目录</h4><p>尽管asar被作为目录对待，但是实际上在文件系统中是不存在目录的，所以你绝不能设置工作目录到存档的目录中。将它们作为一些api的<code>cwd</code>选项也会造成错误。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/02/Electron文档翻译学习/" rel="next" title="Electron文档翻译学习">
+                <i class="fa fa-chevron-left"></i> Electron文档翻译学习
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/05/Electron发布/" rel="prev" title="Electron发布">
+                Electron发布 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/05/Electron打包/"
+           data-title="Electron发布" data-url="http://yoursite.com/2016/09/05/Electron打包/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="李学轩" />
+          <p class="site-author-name" itemprop="name">李学轩</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/spiritholy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#应用打包"><span class="nav-number">1.</span> <span class="nav-text">应用打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成asar存档"><span class="nav-number">1.1.</span> <span class="nav-text">生成asar存档</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装asar工具"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.安装asar工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用asar-pack打包"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.使用asar pack打包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用asar存档"><span class="nav-number">1.2.</span> <span class="nav-text">使用asar存档</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Node-API"><span class="nav-number">1.2.1.</span> <span class="nav-text">Node API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web-API"><span class="nav-number">1.2.2.</span> <span class="nav-text">Web API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将asar存档作为一个一般的文件"><span class="nav-number">1.2.3.</span> <span class="nav-text">将asar存档作为一个一般的文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-api的限制"><span class="nav-number">1.3.</span> <span class="nav-text">Node api的限制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存档是只读的"><span class="nav-number">1.3.1.</span> <span class="nav-text">存档是只读的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工作目录不能设置为存档中的目录"><span class="nav-number">1.3.2.</span> <span class="nav-text">工作目录不能设置为存档中的目录</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李学轩</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lixuexuan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

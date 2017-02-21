@@ -1,0 +1,776 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="sass文档翻译学习Sass（极好的语义化层叠样式表）Sass是一种CSS扩展，它在基本语言上添加了更强大和优雅的编程方式。它允许你使用变量，嵌套规则，mixins，行内import，以及更多，而且全面兼容CSS语法。Sass帮忙保持大量的层叠样式被很好的组织，而且使得层叠样式更小并更快地运行，尤其使用罗盘样式库。
+特性
+完全兼容CSS
+语言扩展，例如变量，嵌套和mixin
+许多有用的方法来操作颜">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sass文档翻译学习">
+<meta property="og:url" content="http://yoursite.com/2016/08/02/sass文档翻译学习/index.html">
+<meta property="og:site_name" content="程序与生活">
+<meta property="og:description" content="sass文档翻译学习Sass（极好的语义化层叠样式表）Sass是一种CSS扩展，它在基本语言上添加了更强大和优雅的编程方式。它允许你使用变量，嵌套规则，mixins，行内import，以及更多，而且全面兼容CSS语法。Sass帮忙保持大量的层叠样式被很好的组织，而且使得层叠样式更小并更快地运行，尤其使用罗盘样式库。
+特性
+完全兼容CSS
+语言扩展，例如变量，嵌套和mixin
+许多有用的方法来操作颜">
+<meta property="og:updated_time" content="2017-02-21T10:25:35.566Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sass文档翻译学习">
+<meta name="twitter:description" content="sass文档翻译学习Sass（极好的语义化层叠样式表）Sass是一种CSS扩展，它在基本语言上添加了更强大和优雅的编程方式。它允许你使用变量，嵌套规则，mixins，行内import，以及更多，而且全面兼容CSS语法。Sass帮忙保持大量的层叠样式被很好的组织，而且使得层叠样式更小并更快地运行，尤其使用罗盘样式库。
+特性
+完全兼容CSS
+语言扩展，例如变量，嵌套和mixin
+许多有用的方法来操作颜">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> sass文档翻译学习 | 程序与生活 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">程序与生活</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                sass文档翻译学习
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-02T00:00:00+08:00" content="2016-08-02">
+              2016-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/02/sass文档翻译学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/02/sass文档翻译学习/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="sass文档翻译学习"><a href="#sass文档翻译学习" class="headerlink" title="sass文档翻译学习"></a>sass文档翻译学习</h1><h2 id="Sass（极好的语义化层叠样式表）"><a href="#Sass（极好的语义化层叠样式表）" class="headerlink" title="Sass（极好的语义化层叠样式表）"></a>Sass（极好的语义化层叠样式表）</h2><p>Sass是一种CSS扩展，它在基本语言上添加了更强大和优雅的编程方式。它允许你使用变量，嵌套规则，mixins，行内import，以及更多，而且全面兼容CSS语法。Sass帮忙保持大量的层叠样式被很好的组织，而且使得层叠样式更小并更快地运行，尤其使用罗盘样式库。</p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li>完全兼容CSS</li>
+<li>语言扩展，例如变量，嵌套和mixin</li>
+<li>许多有用的方法来操作颜色和其它变量</li>
+<li>高级特性，像对库的控制指令</li>
+<li>结构良好的，可自定义的输出</li>
+</ul>
+<a id="more"></a>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>Sass有两个可用的语法。第一个，被称为SCSS，并被用在这篇参考文档中，是CSS语法的一个扩展。这意味着每一个有效的CSS文件都是一个有效的SCSS文件，有着相同的意义。另外，SCSS明白大部分的CSS的hacks和供应商语法，像IE的<code>filter</code>语法。这个语法是下面介绍的Sass语法的加强。使用这个语法的文件的扩展名为<code>.scss</code>。</p>
+<p>第二个和更老的语法，被称为缩进语法，提供了一个更简明的写CSS的方式。它使用缩进而不是大括号来指定选择器的缩进，使用新行而不是分号来分隔特性。一些人发现这种语法比SCSS更容易阅读和更快编写。缩进语法拥有所有相同的特性，尽管其中有一些不同的语法。使用这个语法的文件扩展名为<code>.sass</code></p>
+<p>每个语法都能从其它<code>import</code>文件进来。文件能被自动转换从一个语法到另一个语法使用<code>sass-convert</code>命令行工具。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Convert Sass to SCSS</div><div class="line">$ sass-convert style.sass style.scss</div><div class="line"></div><div class="line"># Convert SCSS to Sass</div><div class="line">$ sass-convert style.scss style.sass</div></pre></td></tr></table></figure>
+<p>注意这个命令不能产生CSS文件，而要使用sass命令来做这个</p>
+<h2 id="使用Sass"><a href="#使用Sass" class="headerlink" title="使用Sass"></a>使用Sass</h2><p>Sass能以3个方式使用：作为一个命令行工具，作为一个单独的Ruby模块，作为一个Ruby框架插件，包括Ruby on Rails 和 Merb。第一步是安装Sass gem：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install sass</div></pre></td></tr></table></figure>
+<p>如果你使用windows，肯需要首先安装Ruby</p>
+<p>从命令行运行Sass</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass input.scss output.css</div></pre></td></tr></table></figure>
+<p>你也能告诉Sass监视文件，然后在每次文件改变的时候更新CSS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch input.scss:output.css</div></pre></td></tr></table></figure>
+<p>如果你拥有一个有许多Sass文件的目录，你能够告诉Sass监视整个目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sass --watch app/sass:public/stylesheets</div></pre></td></tr></table></figure>
+<p>使用<code>sass --help</code>查看更多的文档</p>
+<h2 id="CSS扩展"><a href="#CSS扩展" class="headerlink" title="CSS扩展"></a>CSS扩展</h2><h3 id="嵌套规则"><a href="#嵌套规则" class="headerlink" title="嵌套规则"></a>嵌套规则</h3><p>Sass允许CSS规则嵌套进另一个中。内部规则只能被应用在外部选择器内。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#main p &#123;</div><div class="line">  color: #00ff00;</div><div class="line">  width: 97%;</div><div class="line"></div><div class="line">  .redbox &#123;</div><div class="line">    background-color: #ff0000;</div><div class="line">    color: #000000;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#main p &#123;</div><div class="line">  color: #00ff00;</div><div class="line">  width: 97%; &#125;</div><div class="line">  #main p .redbox &#123;</div><div class="line">    background-color: #ff0000;</div><div class="line">    color: #000000; &#125;</div></pre></td></tr></table></figure>
+<p>这帮助避免写重复的父选择器，而且使嵌套了许多选择器的复杂的CSS结构更简单。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#main &#123;</div><div class="line">  width: 97%;</div><div class="line"></div><div class="line">  p, div &#123;</div><div class="line">    font-size: 2em;</div><div class="line">    a &#123; font-weight: bold; &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  pre &#123; font-size: 3em; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#main &#123;</div><div class="line">  width: 97%; &#125;</div><div class="line">  #main p, #main div &#123;</div><div class="line">    font-size: 2em; &#125;</div><div class="line">    #main p a, #main div a &#123;</div><div class="line">      font-weight: bold; &#125;</div><div class="line">  #main pre &#123;</div><div class="line">    font-size: 3em; &#125;</div></pre></td></tr></table></figure>
+<h3 id="引用父选择器"><a href="#引用父选择器" class="headerlink" title="引用父选择器"></a>引用父选择器</h3><p>有时候使用另一种方式来引用嵌套规则中的父元素是非常有用的。例如，你可能想有一个特殊的样式当选择器被hover的时候，或者当body元素有某个类的时候。你能够明确地指定父元素应该被插入到哪里，使用<code>&amp;</code>字符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">a &#123;</div><div class="line">  font-weight: bold;</div><div class="line">  text-decoration: none;</div><div class="line">  &amp;:hover &#123; text-decoration: underline; &#125;</div><div class="line">  body.firefox &amp; &#123; font-weight: normal; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">a &#123;</div><div class="line">  font-weight: bold;</div><div class="line">  text-decoration: none; &#125;</div><div class="line">  a:hover &#123;</div><div class="line">    text-decoration: underline; &#125;</div><div class="line">  body.firefox a &#123;</div><div class="line">    font-weight: normal; &#125;</div></pre></td></tr></table></figure>
+<p><code>&amp;</code>将会被父选择器替换。这意味着如果你有一个深层次的嵌套，<code>&amp;</code>将会被所有的父元素完全替换。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#main &#123;</div><div class="line">  color: black;</div><div class="line">  a &#123;</div><div class="line">    font-weight: bold;</div><div class="line">    &amp;:hover &#123; color: red; &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#main &#123;</div><div class="line">  color: black; &#125;</div><div class="line">  #main a &#123;</div><div class="line">    font-weight: bold; &#125;</div><div class="line">    #main a:hover &#123;</div><div class="line">      color: red; &#125;</div></pre></td></tr></table></figure>
+<p><code>&amp;</code>必须出现在符合选择器的开头，它能够跟一个后缀，被添加到父选择器的后面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#main &#123;</div><div class="line">  color: black;</div><div class="line">  &amp;-sidebar &#123; border: 1px solid; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#main &#123;</div><div class="line">  color: black; &#125;</div><div class="line">  #main-sidebar &#123;</div><div class="line">    border: 1px solid; &#125;</div></pre></td></tr></table></figure>
+<p>如果父元素不能有后缀，Sass会抛出一个错误。</p>
+<h3 id="嵌套属性"><a href="#嵌套属性" class="headerlink" title="嵌套属性"></a>嵌套属性</h3><p>CSS中有一些特性被包含在命名空间里。例如<code>font-size</code> <code>font-family</code> <code>font-weight</code>都在<code>font</code>命名空间里。在CSS里，如果你想设置同一个命名空间的许多特性，你需要每一次都编写一遍。Sass提供一种简写：只用写命名空间一次，然后嵌套每一个子特性到里面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.funky &#123;</div><div class="line">  font: &#123;</div><div class="line">    family: fantasy;</div><div class="line">    size: 30em;</div><div class="line">    weight: bold;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.funky &#123;</div><div class="line">  font-family: fantasy;</div><div class="line">  font-size: 30em;</div><div class="line">  font-weight: bold; &#125;</div></pre></td></tr></table></figure>
+<p>这个特性命名空间也能有值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.funky &#123;</div><div class="line">  font: 20px/24px fantasy &#123;</div><div class="line">    weight: bold;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.funky &#123;</div><div class="line">  font: 20px/24px fantasy;</div><div class="line">    font-weight: bold;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="注释：-和"><a href="#注释：-和" class="headerlink" title="注释：/* */ 和 //"></a>注释：<code>/* */</code> 和 //</h2><p>Sass支持标准的多行CSS注释<code>/* */</code>和单行CSS注释//。多行注释被保存在CSS输出中，单行注释会被移除</p>
+<h2 id="SassScript"><a href="#SassScript" class="headerlink" title="SassScript"></a>SassScript</h2><p>除了一般的CSS特性语法，Sass支持一些扩展，称为SassScript。SassScript允许特性使用变量，算术，和额外函数。SassScript能被用在任意的特性中。</p>
+<p>SassScript能被用来产生选择器和特性名，在写mixin的时候非常有用。它是通过<code>interpolation</code>来实现的。</p>
+<p>###　交互式命令行</p>
+<p>你能够简单地试验SassScript使用命令行。运行命令行使用-i选项</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量$"></a>变量$</h3><p>最直接的使用SassScript的方法就是使用变量。变量以<code>$</code>字符开头，然后像CSS特性一样设置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$width: 5em;</div></pre></td></tr></table></figure>
+<p>你然后就能在特性中引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#main &#123;</div><div class="line">    width: $width;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>变量只能在它们被定义的嵌套选择器内使用，如果它们定义在任何选择器的外部，它们就能在任意地方使用。它们也能被定义使用<code>!global</code>标志，这样它们也可以在任意地方使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#main &#123;</div><div class="line">  $width: 5em !global;</div><div class="line">  width: $width;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#sidebar &#123;</div><div class="line">  width: $width;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#main &#123;</div><div class="line">  width: 5em;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#sidebar &#123;</div><div class="line">  width: 5em;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>因为历史原因，变量名和其它Sass标识符能在连字符和下划线之间切换。例如，如果你定义了一个变量<code>$main-width</code>，它也能由<code>$main_width</code>访问。</p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>SassScript支持7中主要的数据类型</p>
+<ul>
+<li>numbers， 1.2, 13, 10px</li>
+<li>strings of text，有或者没有引号</li>
+<li>colors，blue，#000000</li>
+<li>booleans，true, false</li>
+<li>nulls，null</li>
+<li>list of values，用空格或者逗号分隔，1.5em 1em 0 2em, Helvetica, Arial, sans-serif</li>
+<li>maps from one value to another,(key1: value1, key2: value2)</li>
+</ul>
+<p>SassScript也支持所有其它的CSS特性值，像Unicode ranges和!important声明。然而并没有什么特殊处理，它们将会被看成无引号的字符串。</p>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>CSS指定了两种类型的字符串：有引号的，例如”Lucla”,”<a href="http://www.baidu.com&quot;，和没有引号的，例如sans-serif和bold。SassScript识别两种类型。" target="_blank" rel="external">http://www.baidu.com&quot;，和没有引号的，例如sans-serif和bold。SassScript识别两种类型。</a></p>
+<p>有一个例外，当使用<code>#{}</code>插入的时候，引号字符串是不解释为有引号的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@mixin firefox-message($selector) &#123;</div><div class="line">  body.firefox #&#123;$selector&#125;:before &#123;</div><div class="line">    content: &quot;Hi, Firefox users!&quot;;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@include firefox-message(&quot;.header&quot;);</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">body.firefox .header:before &#123;</div><div class="line">  content: &quot;Hi, Firefox users!&quot;; &#125;</div></pre></td></tr></table></figure>
+<h4 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h4><p>Lists是Sass展现这样的CSS声明<code>margin:10px 15px 0 0</code>。Lists就是一系列其它类型的值，由空格或逗号分隔。事实上，单个值也被视为Lists。</p>
+<p>就其本身而言，Lists没有什么东西，但是<code>SassScript list functions</code>使它变得有用。<code>nth</code>函数能够访问Lists中的一个条目，<code>join</code>函数能将多个Lists合并起来。<code>append</code>函数能添加条目到列表中。<code>@each</code>指令能对每一个条目添加样式。</p>
+<p>除了包括简单的值，Lists也能包括其它Lists。例如<code>1px 2px, 4px 5px</code>就是一个包含了Lists的Lists。如果内部的Lists与外部Lists有相同的分隔符，你需要使用括号来分隔。例如<code>(1px 2px) (4px 5px)</code>。</p>
+<p>当Lists转换为CSS，并不会将括号添加进去，因为CSS不能理解括号。这就意味着<code>(1px 2px) (4px 5px)</code>和<code>1px 2px 4px 5px</code>将在CSS中显示一样。</p>
+<p>Lists也可以一条条目都不包括。它们不能直接输出到CSS，如果你试图这么做了，Sass将会报错。如果列表包括空的列表或者空的值，那么这些空的值会在转换为CSS时被移除。</p>
+<h4 id="Maps"><a href="#Maps" class="headerlink" title="Maps"></a>Maps</h4><p>Maps展现了键值对的关系，键用来查找值。它将值集合进命名组中来动态访问。它们不直接与CSS类似，尽管它们与媒体查询表达式语法类似。</p>
+<p>不同于Lists，Maps必须由括号包裹起来，并且必须由逗号分隔。</p>
+<p>与Lists一样，Maps大部分由SassScript函数操作。<code>map-get</code>函数查阅Maps里的值，<code>map-merge</code>函数添加值到Maps中。<code>@each</code>指令能添加样式到每一个Maps中的键值对。键值对的顺序与创建时的顺序相同。</p>
+<p>Maps能用在任何Lists能用的地方。当被一个Lists函数使用时，Maps被当做键值对的列表。</p>
+<p>Maps不能被转换为CSS。</p>
+<h4 id="Colors"><a href="#Colors" class="headerlink" title="Colors"></a>Colors</h4><p>任意的CSS颜色表达式都返回一个SassScript Color值。这其中包括一大部分颜色的命名。</p>
+<p>在压缩输出模式下，Sass将输出最小的CSS颜色表达。例如，<code>#FF0000</code>在压缩输出模式下将输出<code>red</code>，但是<code>blanchedalmond</code>将输出<code>#FFEBCD</code>。</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><p>所有的类型都支持相等操作符<code>==</code> <code>!=</code>，每一个操作符都有其特殊的操作符支持。</p>
+<h4 id="数字操作"><a href="#数字操作" class="headerlink" title="数字操作"></a>数字操作</h4><p>SassScript支持标准的算术操作符。Sass数学函数在进行算术操作中保存单位。这意味着，你不能够在数字上使用不兼容的单位，而且两个有相同单位的数字在相乘的情况下将产生平方的单位。意识到<code>px * px</code>是一个无效的CSS单位，你将得到一个错误。</p>
+<p>关系操作符(&lt; &gt; &lt;= &gt;=)在Number类型下支持。(== !=)在所有类型下支持。</p>
+<p>CSS允许使用<code>/</code>在特性中分隔数字。SassScript作为CSS的扩展，它必须支持这个，然而也支持将其作为除号。这意味着默认情况下，如果两个数字被<code>/</code>分隔，它将在CSS中显示得一样。</p>
+<p>然而，有三种情况<code>/</code>将被解释为除号，它们覆盖了主要的除法要应用的情况。</p>
+<ol>
+<li>如果值被存在变量里，或者由一个函数返回</li>
+<li>如果值被括号括起来，除非这个括号在列表外面，值在列表里面</li>
+<li>如果值是作为另外一个算术表达式的一部分</li>
+</ol>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  font: 10px/8px;             // Plain CSS, no division</div><div class="line">  $width: 1000px;</div><div class="line">  width: $width/2;            // Uses a variable, does division</div><div class="line">  width: round(1.5)/2;        // Uses a function, does division</div><div class="line">  height: (500px/2);          // Uses parentheses, does division</div><div class="line">  margin-left: 5px + 8px/2px; // Uses +, does division</div><div class="line">  font: (italic bold 10px/8px); // In a list, parentheses don&apos;t count</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  font: 10px/8px;</div><div class="line">  width: 500px;</div><div class="line">  height: 250px;</div><div class="line">  margin-left: 9px; &#125;</div></pre></td></tr></table></figure>
+<p>如果你想使用变量和普通的CSS/，你能使用<code>#{}</code>来插入变量，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  $font-size: 12px;</div><div class="line">  $line-height: 30px;</div><div class="line">  font: #&#123;$font-size&#125;/#&#123;$line-height&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  font: 12px/30px; &#125;</div></pre></td></tr></table></figure>
+<p>减法，负数，和-</p>
+<p><code>-</code>有许多意义。它可以作为减法操作符，负数的开头，和取反操作符，或者是一个标识符的一部分。</p>
+<h4 id="颜色操作"><a href="#颜色操作" class="headerlink" title="颜色操作"></a>颜色操作</h4><p>所有的算术操作符都支持颜色值，它们分段地工作。这意味着操作符在红绿蓝中一次生效。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">P &#123;</div><div class="line">  color: #010203 + #040506</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将计算01 + 04 = 05, 02 + 05 = 07, 和 03 + 06 = 09，并被编译成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  color: #050709;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用color函数比使用color算术更有用。</p>
+<p>算术操作也能在Number和color中进行，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  color: #010203 * 2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  color: #020406;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>有aloha通道的color值必须由相同的alpha值来进行算术计算，算术将不会影响alpha值。例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  color: rgba(255, 0, 0, 0.75) + rgba(0, 255, 0, 0.75);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  color: rgba(255, 255, 0, 0.75); &#125;</div></pre></td></tr></table></figure>
+<p>颜色的alpha通道能通过<code>opacity</code>和<code>transparentize</code>函数调整</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$translucent-red: rgba(255, 0, 0, 0.5);</div><div class="line">p &#123;</div><div class="line">  color: opacify($translucent-red, 0.3);</div><div class="line">  background-color: transparentize($translucent-red, 0.25);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  color: rgba(255, 0, 0, 0.8);</div><div class="line">  background-color: rgba(255, 0, 0, 0.25); &#125;</div></pre></td></tr></table></figure>
+<h4 id="String-操作符"><a href="#String-操作符" class="headerlink" title="String 操作符"></a>String 操作符</h4><p><code>+</code>能被用来连接字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  cursor: e + -resize;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  cursor: e-resize; &#125;</div></pre></td></tr></table></figure>
+<p>注意如果一个无引号字符串和一个有引号字符串相加，结果根据加号左边有没有引号来生成结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">p:before &#123;</div><div class="line">  content: &quot;Foo &quot; + Bar;</div><div class="line">  font-family: sans- + &quot;serif&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p:before &#123;</div><div class="line">  content: &quot;Foo Bar&quot;;</div><div class="line">  font-family: sans-serif; &#125;</div></pre></td></tr></table></figure>
+<p>在一个字符串内部，<code>#{}</code>能被用来放动态值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p:before &#123;</div><div class="line">  content: &quot;I ate #&#123;5 + 10&#125; pies!&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p:before &#123;</div><div class="line">  content: &quot;I ate 15 pies!&quot;; &#125;</div></pre></td></tr></table></figure>
+<p>Null值被看做空字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$value: null;</div><div class="line">p:before &#123;</div><div class="line">  content: &quot;I ate #&#123;$value&#125; pies!&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p:before &#123;</div><div class="line">  content: &quot;I ate  pies!&quot;; &#125;</div></pre></td></tr></table></figure>
+<h4 id="Boolean操作符"><a href="#Boolean操作符" class="headerlink" title="Boolean操作符"></a>Boolean操作符</h4><p>SassScript支持and,or,not操作符，对boolean值</p>
+<h4 id="List操作符"><a href="#List操作符" class="headerlink" title="List操作符"></a>List操作符</h4><p>List不支持任何特殊的操作符，它们一般使用list functions使用</p>
+<h3 id="括号"><a href="#括号" class="headerlink" title="括号"></a>括号</h3><p>括号被用来影响操作符的顺序</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>SassScript定义了一些有用的函数，调用使用一般的CSS函数语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  color: hsl(0, 100%, 50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  color: #ff0000; &#125;</div></pre></td></tr></table></figure>
+<h3 id="插入："><a href="#插入：" class="headerlink" title="插入：#{}"></a>插入：<code>#{}</code></h3><p>你能够使用SassScript变量在选择器和特性中，使用插入语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$name: foo;</div><div class="line">$attr: border;</div><div class="line">p.#&#123;$name&#125; &#123;</div><div class="line">  #&#123;$attr&#125;-color: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p.foo &#123;</div><div class="line">  border-color: blue; &#125;</div></pre></td></tr></table></figure>
+<p>也可以在特性值中使用插入。大部分情况下这种方式并不比直接使用变量更好，但是使用插入意味着任何周围的操作符将会被作为一般的CSS语句来对待</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  $font-size: 12px;</div><div class="line">  $line-height: 30px;</div><div class="line">  font: #&#123;$font-size&#125;/#&#123;$line-height&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  font: 12px/30px; &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/01/viewport标签说明/" rel="next" title="viewport标签说明">
+                <i class="fa fa-chevron-left"></i> viewport标签说明
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/04/es6解构赋值/" rel="prev" title="es6解构赋值">
+                es6解构赋值 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/02/sass文档翻译学习/"
+           data-title="sass文档翻译学习" data-url="http://yoursite.com/2016/08/02/sass文档翻译学习/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="李学轩" />
+          <p class="site-author-name" itemprop="name">李学轩</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/spiritholy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sass文档翻译学习"><span class="nav-number">1.</span> <span class="nav-text">sass文档翻译学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sass（极好的语义化层叠样式表）"><span class="nav-number">1.1.</span> <span class="nav-text">Sass（极好的语义化层叠样式表）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">1.2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">1.3.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Sass"><span class="nav-number">1.4.</span> <span class="nav-text">使用Sass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS扩展"><span class="nav-number">1.5.</span> <span class="nav-text">CSS扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套规则"><span class="nav-number">1.5.1.</span> <span class="nav-text">嵌套规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用父选择器"><span class="nav-number">1.5.2.</span> <span class="nav-text">引用父选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套属性"><span class="nav-number">1.5.3.</span> <span class="nav-text">嵌套属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释：-和"><span class="nav-number">1.6.</span> <span class="nav-text">注释：/* */ 和 //</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SassScript"><span class="nav-number">1.7.</span> <span class="nav-text">SassScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.7.1.</span> <span class="nav-text">变量$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.7.2.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lists"><span class="nav-number">1.7.2.2.</span> <span class="nav-text">Lists</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maps"><span class="nav-number">1.7.2.3.</span> <span class="nav-text">Maps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Colors"><span class="nav-number">1.7.2.4.</span> <span class="nav-text">Colors</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">1.7.3.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数字操作"><span class="nav-number">1.7.3.1.</span> <span class="nav-text">数字操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#颜色操作"><span class="nav-number">1.7.3.2.</span> <span class="nav-text">颜色操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-操作符"><span class="nav-number">1.7.3.3.</span> <span class="nav-text">String 操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boolean操作符"><span class="nav-number">1.7.3.4.</span> <span class="nav-text">Boolean操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List操作符"><span class="nav-number">1.7.3.5.</span> <span class="nav-text">List操作符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#括号"><span class="nav-number">1.7.4.</span> <span class="nav-text">括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">1.7.5.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入："><span class="nav-number">1.7.6.</span> <span class="nav-text">插入：#{}</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李学轩</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lixuexuan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

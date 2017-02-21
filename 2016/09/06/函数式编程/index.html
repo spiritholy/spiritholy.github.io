@@ -1,0 +1,735 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="language," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="函数式编程最近关于函数式编程很有一些声音。纯粹的函数式编程语言像Haskell,Clojure,Scala当前正被技术巨头使用，包括Google，Facebook，LinkedIn，NetFlix。流行的编程语言像JavaScript,Python,Ruby支持函数式编程技术，尽管它们不被认为是完全地函数式语言。在这些语言中有一阵库的爆发，它们虔诚地追随和鼓励你来追随这种技术。甚至传统的面向对象语">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数式编程">
+<meta property="og:url" content="http://yoursite.com/2016/09/06/函数式编程/index.html">
+<meta property="og:site_name" content="程序与生活">
+<meta property="og:description" content="函数式编程最近关于函数式编程很有一些声音。纯粹的函数式编程语言像Haskell,Clojure,Scala当前正被技术巨头使用，包括Google，Facebook，LinkedIn，NetFlix。流行的编程语言像JavaScript,Python,Ruby支持函数式编程技术，尽管它们不被认为是完全地函数式语言。在这些语言中有一阵库的爆发，它们虔诚地追随和鼓励你来追随这种技术。甚至传统的面向对象语">
+<meta property="og:updated_time" content="2017-02-21T10:58:23.602Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数式编程">
+<meta name="twitter:description" content="函数式编程最近关于函数式编程很有一些声音。纯粹的函数式编程语言像Haskell,Clojure,Scala当前正被技术巨头使用，包括Google，Facebook，LinkedIn，NetFlix。流行的编程语言像JavaScript,Python,Ruby支持函数式编程技术，尽管它们不被认为是完全地函数式语言。在这些语言中有一阵库的爆发，它们虔诚地追随和鼓励你来追随这种技术。甚至传统的面向对象语">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 函数式编程 | 程序与生活 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">程序与生活</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                函数式编程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-06T00:00:00+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/函数式编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/函数式编程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><p>最近关于函数式编程很有一些声音。纯粹的函数式编程语言像Haskell,Clojure,Scala当前正被技术巨头使用，包括Google，Facebook，LinkedIn，NetFlix。流行的编程语言像JavaScript,Python,Ruby支持函数式编程技术，尽管它们不被认为是完全地函数式语言。在这些语言中有一阵库的爆发，它们虔诚地追随和鼓励你来追随这种技术。甚至传统的面向对象语言Java,C++通过lambdas支持函数式编程。</p>
+<a id="more"></a>
+<p>如果你想知道函数式的趋势是从哪来的，答案是1930年代，在lamda caculus的发明下。传统上，函数是微积分的一部分自从17世纪以来。函数能被传递给函数或者从函数作为结果返回。更复杂的函数叫做higher order函数，能操作函数本身，并且使用自身作为参数或结果或两者。在1930年代，Alonzo Church在普利斯顿弄混了这些higher order函数，当他发明了一个全局计算模型，被称为lambda calculus 或 λ-calculus。</p>
+<p>在1950年代后期，John McCarthy用λ-calculus中衍生出的概念，然后将它们应用到了一个新的编程语言上，叫做Lisp。Lisp不是纯粹函数式的，依然属于函数式语言范例，就如JavaScript和Python那样。Lisp实现了higher order函数的概念，并且将函数作为第一类成员或者是第一类公民。函数被认为是第一类成员，当其被声明为一个变量并且被作为参数被传递给一个函数。这些函数甚至能从函数中返回。</p>
+<p>对计算机科学来说函数式编程趋势并不是新鲜事。它是一种复古。也有可能你已经写了函数式的JavaScript代码而并没有意识到。如果你曾map或reduce一个数组，那么你已经变成了一个函数式编程者。React，Flux，Redux都适合函数式JavaScript范例。明白基本的函数式编程概念能使你更好地构建React应用。</p>
+<h3 id="变成函数式意味着什么"><a href="#变成函数式意味着什么" class="headerlink" title="变成函数式意味着什么"></a>变成函数式意味着什么</h3><p>在工程师之间有一个很大的争论，是否一个语言支持函数式编程技术就能被称作函数式语言。作为一个函数式编程者，你需要在这场争论中站边。一个支持函数式编程和其它范例的语言是否能被称为函数式语言？</p>
+<p>纯粹的函数式编程语言像Haskell,Clojure严格地执行函数式范例。其它语言，像JavaScript，Python支持函数式技术，但是也支持其它的编程范例。很多工程师只定义那些执行函数式范例的语言为函数式语言。</p>
+<p>相同的争论在面向对象中也存在。JavaScript不像一个传统的面向对象语言，如C++或Java。然而，JavaScript支持对象和继承，所以我们能够包含进面向对象设计模式到我们的应用中，像MVC。尽管JavaScript不是一个面向对象语言，但是JavaScript支持面向对象和原型继承。ES5加强了这种支持，通过Object.create和Object.defineProperties。ES6通过class更进了一步。</p>
+<p>JavaScript支持函数式编程，因为JavaScript函数式第一等公民，意味着函数能做变量能做的事。ES6添加了语言支持来增强函数式编程技术，包括箭头函数，promise和展开操作符。</p>
+<p>我们把JavaScript称为函数式语言，因为它支持第一类成员，但是第一类是什么意思呢？它意味着函数是变量。在你的应用中函数也能代表数据。你可能已经注意到你能使用var声明函数就像你能声明字符串，数字和其它变量一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var log = function(message) &#123;</div><div class="line">  console.log(message)</div><div class="line">&#125;</div><div class="line"></div><div class="line">log(&quot;In JavaScript functions are variables&quot;)</div><div class="line">// In JavaScript, functions are variables.</div></pre></td></tr></table></figure>
+<p>使用ES6，我们能使用箭头函数写相同的方法，函数式编程编写许多小的函数，箭头函数使得这个更简单。这些声明做了相同的事情，它们将一个函数保存在一个名为log的变量中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const log = message =&gt; console.log(message)</div></pre></td></tr></table></figure>
+<p>因为函数是对象，我们能将其添加到对象中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const obj = &#123;</div><div class="line">  message: &quot;They can be added to objects like variables&quot;,</div><div class="line">  log(message) &#123;</div><div class="line">    console.log(message)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">obj.log(obj.message)</div><div class="line">// They can be added to objects like variables</div></pre></td></tr></table></figure>
+<p>我们也能添加变量到数组中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const messages = [</div><div class="line">  &quot;They can be inserted into arrays&quot;,</div><div class="line">  message =&gt; console.log(message),</div><div class="line">  &quot;like variables&quot;,</div><div class="line">  message =&gt; console.log(message)</div><div class="line">]</div><div class="line">messages[1](messages[0]) // They can be inserted into arrays</div><div class="line">messages[3](messages[2]) // like variables</div></pre></td></tr></table></figure>
+<p>函数能被传递到其它函数中作为参数，就像其它变量一样。</p>
+<p>它们也能从其它函数中返回，就像变量一样。</p>
+<p>后两种情况就是higher order函数，它们能接收或者返回函数。使用ES6语法，我们能描述higher order函数使用箭头函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const createScream = logger =&gt; message =&gt;</div><div class="line">  logger(message.toUpperCase() + &quot;!!!&quot;)</div></pre></td></tr></table></figure>
+<p>从现在起，我们需要在函数声明中注意箭头的数量。超过一个箭头意味着higher order函数。</p>
+<p>我们说JavaScript是一个函数式语言因为它的函数是第一类公民。这意味着函数是数据。它能被保存，取回，流动就像应用中的其它变量一样。</p>
+<h3 id="命令式-VS-声明式"><a href="#命令式-VS-声明式" class="headerlink" title="命令式 VS 声明式"></a>命令式 VS 声明式</h3><p>函数式编程是一个更大的编程范例的一部分：声明式编程。声明式编程是一种编程风格，应用需要以这种方式来组织：优先描述什么应该发生，然后再是定义怎么发生。</p>
+<p>为了明白声明式编程，我们将与命令式编程进行对比，命令式编程就是一种编程风格：只关心如何使用代码得到结果。让我们考虑一个一般的任务：使一个URL字符串更友好。典型地，它能替换所有字符串中的空格为连字符，因为空格不是URL友好的。首先让我们检查一个命令式的方法来做这个任务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var string = &quot;This is the mid day show with Cheryl Waters&quot;;</div><div class="line">var urlFriendly = &quot;&quot;;</div><div class="line"></div><div class="line">for (var i = 0; i &lt; string.length; i++) &#123;</div><div class="line">  if (string[i] === &quot; &quot;) &#123;</div><div class="line">    urlFriendly += &quot;-&quot;;</div><div class="line">  &#125; else &#123;</div><div class="line">    urlFriendly += string[i];</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(urlFriendly);</div></pre></td></tr></table></figure>
+<p>在这个例子中，我们循环字符串中的每一个字符并替换空格。这个程序的结果只关心任务如何能被完成。我们使用了for循环和一个if语句，并且使用相等运算符设置值。只是看代码的话不能告诉我们更多东西了。命令式编程需要大量注释来明白到底做了什么。</p>
+<p>现在让我们看一个声明式方法来完成同一个问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const string = &quot;This is the mid day show with Cheryl Waters&quot;</div><div class="line">const urlFriendly = string.replace(/ /g, &quot;-&quot;)</div><div class="line">console.log(urlFriendly)</div></pre></td></tr></table></figure>
+<p>这儿我们使用了string.replace和一个正则表达式来使用连字符替换所有的空格。使用stirng.replace是一个方式来描述什么应该发生，字符串里的空格应该被替换。空格如何被处理的细节被抽象到.replace函数中。在声明式编程中，语法描述了什么应该发生，而且将事情如何发生的细节抽象。</p>
+<p>声明式编程能简单地查找原因，因为代码本身描述了发生了什么。例如，读一下示例的语法，它详述了在成员被api加载后发生了什么。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">const loadAndMapMembers = compose(</div><div class="line">combineWith(sessionStorage, &quot;members&quot;),</div><div class="line">save(sessionStorage, &quot;members&quot;),</div><div class="line">scopeMembers(window),</div><div class="line">logMemberInfoToConsole,</div><div class="line">logFieldsToConsole(&quot;name.first&quot;),</div><div class="line">countMembersBy(&quot;location.state&quot;),</div><div class="line">prepStatesForMapping,</div><div class="line">save(sessionStorage, &quot;map&quot;),</div><div class="line">renderUSMap</div><div class="line">);</div><div class="line"></div><div class="line">getFakeMembers(100).then(loadAndMapMembers);</div></pre></td></tr></table></figure>
+<p>声明式方法是更可读的，而且，更方便查找原因。这些函数如何实现的细节被抽象出去了。这些小型函数被命名地很好，并且以某种方式组合起来，这种方式描述了成员数据如何通过，从被加载到被保存到被打印。这个方法不需要任何的注释。声明式编程应该产生那种非常简单就能查找原因的应用。当一个应用能非常简单地查找原因，它就能很方便地扩展。</p>
+<p>现在让我们考虑一个建立一个DOM的任务。一个命令式编程将会关心DOM如何被组建。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var target = document.getElementById(&apos;target&apos;);</div><div class="line">var wrapper = document.createElement(&apos;div&apos;);</div><div class="line">var headline = document.createElement(&apos;h1&apos;);</div><div class="line"></div><div class="line">wrapper.id = &quot;welcome&quot;;</div><div class="line">headline.innerText = &quot;Hello World&quot;;</div><div class="line"></div><div class="line">wrapper.appendChild(headline);</div><div class="line">target.appendChild(wrapper);</div></pre></td></tr></table></figure>
+<p>这个代码关心创建元素，设置元素，并且添加它们到文档中。它将使得做出改变，添加特性，或扩展到1000行代码变得困难，当DOM命令式构建的时候。</p>
+<p>现在让我们来看看如何使用React组件来构建DOM声明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">const &#123;render&#125; = ReactDom</div><div class="line"></div><div class="line">const Welcome = () =&gt; (</div><div class="line">  &lt;div id=&quot;welcome&quot;&gt;</div><div class="line">    &lt;h1&gt;Hello World&lt;/h1&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">)</div><div class="line"></div><div class="line">render(</div><div class="line">  &lt;Welcome /&gt;,</div><div class="line">  document.getElementById(&apos;target&apos;)</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>React是声明式的。这里，welcome组件描述了要被渲染的DOM。渲染函数使用组件中的指令声明来建立DOM。渲染函数抽象了DOM是如何被渲染的细节。我们能清晰地看到我们想渲染我们的welcome组件到id为target的元素中。</p>
+<h3 id="函数式概念"><a href="#函数式概念" class="headerlink" title="函数式概念"></a>函数式概念</h3><p>既然我们已经介绍了函数式编程，而且函数式和声明式意味着什么，我们将介绍函数式编程的核心概念：不变性，纯粹性，数据抽象，higher order函数，递归和组合。</p>
+<h3 id="不变性"><a href="#不变性" class="headerlink" title="不变性"></a>不变性</h3><p>不变性就是不能改变。在一个函数式程序中，数据是不变的。</p>
+<p>如果你想与公众分享你的出生证明，但是想编写或者移除私有信息，本质上有两个选择：你能在出生证明上作假划去私有信息，或者你能找一个拷贝机器。找到一个拷贝机器，拷贝一份你的出生证明，然后以更好地方式重写这个拷贝。这个方式你能有一个编造的出生证书，这样你就能分享它，而且它的原本保持不变。</p>
+<p>这就是不变的数据在应用中是如何工作的。我们不会改变原本的数据结构。我们将建立这些数据的拷贝，然后使用它们。</p>
+<p>为了理解不变性是如何工作的，我们来看一下什么意味着改变数据。考虑一个对象如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let color_lawn = &#123;</div><div class="line">  title: &quot;lawn&quot;,</div><div class="line">  color: &quot;#00FF00&quot;,</div><div class="line">  rating: 0</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们将建立一个函数来rate这个color，而且使用这个方法改变color对象的rating。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function rateColor(color, rating) &#123;</div><div class="line">color.rating = rating</div><div class="line">return color</div><div class="line">&#125;</div><div class="line">console.log(rateColor(color_lawn, 5).rating) // 5</div><div class="line">console.log(color_lawn.rating) // 5</div></pre></td></tr></table></figure>
+<p>在JavaScript中，函数参数引用到了实际的数据。设置color的rating将改变原本的color对象。想象一下如果你有一个业务任务需要分享你的出生证明，而且返回给你的原始出生证明上有黑色标记在重要数据上。这个rate color函数在业务上来说是不好的，因为它改变了原始color。</p>
+<p>你希望一个业务能使用足够的一般道理来拷贝你的出生证明而且返回一个没有损害的原件。我们能重写rateColor函数来让它不损害原始产品。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var rateColor = function(color, rating) &#123;</div><div class="line">  return Object.assign(&#123;&#125;, color, &#123;rating:rating&#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(rateColor(color_lawn, 5).rating) // 5</div><div class="line">console.log(color_lawn.rating) // 4</div></pre></td></tr></table></figure>
+<p>这里，我们使用Object.assign来改变color rating。Object.assign是一个拷贝机器。它接收一个空对象，将color拷贝到那个空对象中，然后在这个对象中重写rating。现在我们就有一个新的rated color对象而不需要改变原本的对象了。</p>
+<p>我们能写相同的函数，使用ES6箭头函数和ES7扩展运算符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const rateColor = (color, rating) =&gt;</div><div class="line">  (&#123;</div><div class="line">    ...color,</div><div class="line">    rating</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<p>这个rateColor的新型版本与前面的一样。它将color对象看作一个不变的对象，它只是使用了更少的语法以及看起来跟简洁。注意我们将返回对象包装在了括号中。在箭头函数中，这是需要的步骤，因为箭头不能指向一个代表对象的大括号。</p>
+<p>让我们考虑一个颜色名的数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let list = [</div><div class="line">  &#123; title: &quot;Rad Red&quot;&#125;,</div><div class="line">  &#123; title: &quot;Lawn&quot;&#125;,</div><div class="line">  &#123; title: &quot;Party Pink&quot;&#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>我们将创建一个函数来添加颜色到这个数组中，使用array.push()。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var addColor = function(title, colors) &#123;</div><div class="line">  colors.push(&#123;title: title&#125;)</div><div class="line">  return colors;</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(addColor(&quot;Glam Green&quot;, list).length) // 4</div><div class="line">console.log(list.length) // 4</div></pre></td></tr></table></figure>
+<p>然而array.push不是不变性的。这个addColor函数改变了原本的数组通过添加了另外一个域。为了保证colors数组是不变性的，我们必须使用array.concat来替换。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const addColor = (title, array) =&gt; array.concat(&#123;title&#125;)</div><div class="line">console.log(addColor(&quot;Glam Green&quot;, list).length) // 4</div><div class="line">console.log(list.length) // 3</div></pre></td></tr></table></figure>
+<p>Array.concat连结数组。在这个情况下，它创造了一个新对象，有一个新的color title，然后将其添加到原本数组的一个拷贝中去。</p>
+<p>你也能使用ES6扩展操作符来用相同方式连结数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const addColor = (title, list) =&gt; [...list, &#123;title&#125;]</div></pre></td></tr></table></figure>
+<p>这个函数拷贝了一个原始的数组到一个新数组中，然后添加一个新对象连结到后面。这是不变性的。</p>
+<h3 id="纯粹函数"><a href="#纯粹函数" class="headerlink" title="纯粹函数"></a>纯粹函数</h3><p>一个纯粹函数就是，其返回值是基于其参数的计算的。纯粹函数接收至少一个参数而且返回一个值或者另一个函数。它们不会造成副作用。它们不会设置全局变量或者改变任何应用的状态。它们将其参数看做不可变的数据。如果你传递一个特定的数据到一个纯粹函数，那你就会得到一个期望的特定结果。</p>
+<p>为了明白纯粹函数，我们首先看一个不纯粹函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ar frederick = &#123;</div><div class="line">name: &quot;Frederick Douglass&quot;,</div><div class="line">canRead: false,</div><div class="line">carWrite: false</div><div class="line">&#125;</div><div class="line">function selfEducate() &#123;</div><div class="line">frederick.canRead = true</div><div class="line">frederick.canWrite = true</div><div class="line">return frederick</div><div class="line">&#125;</div><div class="line">selfEducate()</div><div class="line">console.log( frederick )</div><div class="line">// &#123;name: &quot;Frederick Douglass&quot;, canRead: true, canWrite: true&#125;</div></pre></td></tr></table></figure>
+<p>这个selfEducate不是一个纯粹函数。它没有接收任何参数，没有返回一个值或一个函数。它还改变了它作用域外的变量。一旦它被调用，世界上的一些东西就被改变了。它造成了副作用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">const frederick = &#123;</div><div class="line">name: &quot;Frederick Douglass&quot;,</div><div class="line">canRead: false,</div><div class="line">canWrite: false</div><div class="line">&#125;</div><div class="line">const selfEducate = (person) =&gt; &#123;</div><div class="line">person.canRead = true</div><div class="line">person.canWrite = true</div><div class="line">return person</div><div class="line">&#125;</div><div class="line">console.log( selfEducate(frederick) )</div><div class="line">console.log( frederick )</div><div class="line">// &#123;name: &quot;Frederick Douglass&quot;, canRead: truetrue, canWrite: true&#125;</div><div class="line">// &#123;name: &quot;Frederick Douglass&quot;, canRead: true, canWrite: true&#125;</div></pre></td></tr></table></figure>
+<p>这个selfEducate函数也是不纯粹的。它造成了副作用。调用这个函数改变了传递过去的对象。如果我们能将传递过去的参数作为不可变数据，我们将有我们自己的纯粹函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">const frederick = &#123;</div><div class="line">name: &quot;Frederick Douglass&quot;,</div><div class="line">canRead: false,</div><div class="line">canWrite: false</div><div class="line">&#125;</div><div class="line">const selfEducate = person =&gt;</div><div class="line">(&#123;</div><div class="line">...person,</div><div class="line">canRead: true,</div><div class="line">canWrite: true</div><div class="line">&#125;)</div><div class="line">console.log( selfEducate(frederick) )</div><div class="line">console.log( frederick )</div><div class="line"></div><div class="line">// &#123;name: &quot;Frederick Douglass&quot;, canRead: true, canWrite: true&#125;</div><div class="line">// &#123;name: &quot;Frederick Douglass&quot;, canRead: false, canWrite: false&#125;</div></pre></td></tr></table></figure>
+<p>最终，这个版本的selfEducate是纯函数。它基于传过去的参数计算出了一个值-person。它返回了一个新的person对象而没有改变传进来的参数，因此没有副作用。</p>
+<p>现在让我们检查一个非纯函数改变DOM。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function Header(text) &#123;</div><div class="line">let h1 = document.createElement(&apos;h1&apos;);</div><div class="line">h1.innerText = text;</div><div class="line">document.body.appendChild(h1);</div><div class="line">&#125;</div><div class="line">Header(&quot;Header() caused side effects&quot;);</div></pre></td></tr></table></figure>
+<p>这个heaer函数使用指定的文本创建了一个h1元素，并将其添加到了DOM中。这个函数是不纯粹的。它没有返回一个函数或值。而且它造成了副作用：改变了DOM。</p>
+<p>在React中，UI是由纯函数来表达的。在这个例子中，header是一个纯函数，它能用来创建h1元素就像上面那样。然而这个函数本身并没有造成副作用，因为它没有改变DOM。这个函数创建了一个h1元素，然后由应用的其它部分来使用这个元素来改变DOM。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const Header = (props) =&gt; &lt;h1&gt;&#123;props.title&#125;&lt;/h1&gt;</div></pre></td></tr></table></figure>
+<p>纯粹函数是函数式编程的另外一个核心概念。它们将会使你的生活更简单，因为它们不会影响你的应用状态。当写函数时，请试图遵守如下三条规则：</p>
+<ol>
+<li>函数至少需要一个参数</li>
+<li>函数应该返回一个值或者一个函数</li>
+<li>函数不应该改变任何参数</li>
+</ol>
+<h3 id="数据转换"><a href="#数据转换" class="headerlink" title="数据转换"></a>数据转换</h3><p>如果数据是不可变的，那么在应用中怎么做出改变呢？函数式编程就是关于从一个地方到另一个地方的数据转换。我们将使用函数来产生转换数据的拷贝。这些函数使我们的代码不是那么必要，因此就减少了复杂度。</p>
+<p>大部分的函数式编程就是关于转换数据。你不需要一个特殊的框架来明白如何基于另外的数据来产生一个数据集。JavaScript内部已经有必要的工具来做这个任务了。有两个核心函数你必须掌握，为了精通函数式JavaScript。这些函数是array.map和array.reduce。</p>
+<p>在这一部分，我们来看看如何使用这些核心函数来将数据从一种类型转换为另一种。</p>
+<p>考虑一个高校的数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const schools = [</div><div class="line">  &quot;Yorktown&quot;,</div><div class="line">  &quot;Washington &amp; Lee&quot;,</div><div class="line">  &quot;Wakefield&quot;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>我们能得到一个逗号分隔的字符串列表，通过使用array.join函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log( schools.join(&quot;, &quot;) )</div><div class="line">// &quot;Yorktown, Washington &amp; Lee, Wakefield&quot;</div></pre></td></tr></table></figure>
+<p>join是JavaScript内置的array方法，我们能使用这个方法来从一个数组中提取出一个分隔字符串。原本的数组是不变的。join只是提供了一个不同的输入。这个字符串是如何产生的细节被抽象出去了。</p>
+<p>如果我们想创建一个函数，它创建一个新的学校的数组，必须以w开头，我们能使用array.filter方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const wSchools = schools.filter(school =&gt; school[0] === &quot;W&quot;)</div><div class="line">console.log( wSchools )</div><div class="line">// [&quot;Washington &amp; Lee&quot;, &quot;Wakefield&quot;]</div></pre></td></tr></table></figure>
+<p>Array.filter是一个内置的JavaScript方法，从一个原数组产生一个新数组。这个函数接收一个predicate做为其唯一的参数。predicate是一个函数，返回一个布尔值。array.filter对每一个item调用这个predicate。item作为参数传递给这个predicate，用来决定这个item是否应该被添加到新数组中。</p>
+<p>当我们要从数组中移除一个item的时候，我们应该使用array.filter而不是array.pop和array.splice，因为array.filter是不可变性的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const cutSchool = (cut, list) =&gt;</div><div class="line">list.filter(school =&gt; school !== cut)</div><div class="line">console.log(cutSchool(&quot;Washington &amp; Lee&quot;, schools).join(&quot; * &quot;))</div><div class="line">// &quot;Yorktown * Wakefield&quot;</div><div class="line">console.log(schools.join(&quot;\n&quot;))</div><div class="line">// Yorktown</div><div class="line">// Washington &amp; Lee</div><div class="line">// Wakefield</div></pre></td></tr></table></figure>
+<p>另一个必要的函数式编程的数组函数是array.map。不同于predicate，array.map接收一个函数作为参数，在每一个item上调用这个函数，不管其返回什么，将它添加到新数组中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">const highSchools = schools.map(school =&gt; `$&#123;school&#125; High School`)</div><div class="line">console.log(highSchools.join(&quot;\n&quot;))</div><div class="line">// Yorktown High School</div><div class="line">// Washington &amp; Lee High School</div><div class="line">// Wakefield High School</div><div class="line">console.log(schools.join(&quot;\n&quot;))</div><div class="line">// Yorktown</div><div class="line">// Washington &amp; Lee</div><div class="line">// Wakefield</div></pre></td></tr></table></figure>
+<p>reduce和reduceRight能被用来转换一个数组为value。value意味着一个数字，字符串，布尔值，对象，或者函数。</p>
+<p>我们现在需要查找一组数中的最大的数。我们需要转换一个array到一个number。我们能使用reduce。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">const ages = [21,18,42,40,64,63,34];</div><div class="line">const maxAge = ages.reduce((max, age) =&gt; &#123;</div><div class="line">console.log(`$&#123;age&#125; &gt; $&#123;max&#125; = $&#123;age &gt; max&#125;`);</div><div class="line">if (age &gt; max) &#123;</div><div class="line">return age</div><div class="line">&#125; else &#123;</div><div class="line">return max</div><div class="line">&#125;</div><div class="line">&#125;, 0)</div><div class="line">console.log(&apos;maxAge&apos;, maxAge);</div><div class="line">// 21 &gt; 0 = true</div><div class="line">// 18 &gt; 21 = false</div><div class="line">// 42 &gt; 21 = true</div><div class="line">// 40 &gt; 42 = false</div><div class="line">// 64 &gt; 42 = true</div><div class="line">// 63 &gt; 64 = false</div><div class="line">// 34 &gt; 64 = false</div><div class="line">// maxAge 64</div></pre></td></tr></table></figure>
+<p>reduce接收两个参数：一个回调函数，和一个初始值。这个例子里，初始值是0，设置了初始最大值是0.回调对每一个item调用一次。</p>
+<p>map和reduce是函数式编程者的主要武器，JavaScript也不例外。如果你想做一个精通的JavaScript工程师，你必须掌握这些函数。能创建一个数据集到另一个数据集的能力是一个必须的技能，而且对任何类型的编程范例都有用。</p>
+<h3 id="higher-order函数"><a href="#higher-order函数" class="headerlink" title="higher order函数"></a>higher order函数</h3><p>higher order函数的使用也是函数式编程的基础。higher order函数就是那些操作其它函数的函数。它们能将函数作为参数，或者将函数作为返回值。</p>
+<p>higher order函数的第一类就是期望其它函数作为其参数的函数。array.map，array.filter和array.reduce都将函数作为参数。它们都是higher order函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const invokeIf = (condition, fnTrue, fnFalse) =&gt;</div><div class="line">(condition) ? fnTrue() : fnFalse()</div><div class="line">const showWelcome = () =&gt;</div><div class="line">console.log(&quot;Welcome!!!&quot;)</div><div class="line">const showUnauthorized = () =&gt;</div><div class="line">console.log(&quot;Unauthorized!!!&quot;)</div><div class="line">invokeIf(true, showWelcome, showUnauthorized) // &quot;Welcome&quot;</div><div class="line">invokeIf(false, showWelcome, showUnauthorized) // &quot;Unauthorized&quot;</div></pre></td></tr></table></figure>
+<p>返回其它函数的higher order函数能帮我们处理JavaScript中有关异步的复杂性。它们能帮我们创建函数，在方便使用和重用的时候。柯里化就是一个函数技术使用了higher order函数。柯里化就是这样一种实践：拥有一些需要的值来完成操作，直到剩下的值能被支持。它通过使用一个函数来实现另一个函数来实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">const userLogs = userName =&gt; message =&gt;</div><div class="line">console.log(`$&#123;userName&#125; -&gt; $&#123;message&#125;`)</div><div class="line">const log = userLogs(&quot;grandpa23&quot;)</div><div class="line">log(&quot;attempted to load 20 fake members&quot;)</div><div class="line">getFakeMembers(20).then(</div><div class="line">members =&gt; log(`successfully loaded $&#123;members.length&#125; members`),</div><div class="line">error =&gt; log(&quot;encountered an error loading members&quot;)</div><div class="line">)</div><div class="line">// grandpa23 -&gt; attempted to load 20 fake members</div><div class="line">// grandpa23 -&gt; successfully loaded 20 members</div><div class="line">// grandpa23 -&gt; attempted to load 20 fake members</div><div class="line">// grandpa23 -&gt; encountered an error loading members</div></pre></td></tr></table></figure>
+<p>userLogs就是一个higher order函数。log函数由userLogs产生，而且每一次log函数被使用的时候，“grandpa23”就被加到message的前面了。</p>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>递归就是创建一个调用它本身的函数。常常当我们面临一个循环的挑战的时候，一个递归函数就能被使用。想象一个从10开始倒数的任务。我们能创建一个for循环来解决这个问题，或者我们能使用一个递归函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">const countdown = (value, fn) =&gt; &#123;</div><div class="line">fn(value)</div><div class="line">return (value &gt; 0) ? countdown(value-1, fn) : value</div><div class="line">&#125;</div><div class="line">countdown(10, value =&gt; console.log(value));</div><div class="line">// 10</div><div class="line">// 9</div><div class="line">// 8</div><div class="line">// 7</div><div class="line">// 6</div><div class="line">// 5</div><div class="line">// 4</div><div class="line">// 3</div><div class="line">// 2</div><div class="line">// 1</div><div class="line">// 0</div></pre></td></tr></table></figure>
+<p>countdown期望一个数字和一个函数作为参数。当countdown被调用的时候，回调函数被调用输出当前值。下一步，countdown检查当前值是否大于0，是的话，countdown调用它自身使用减一的值。最后值将会到0并被返回。</p>
+<p>递归是另外一个函数式技术能处理异步进程。函数能调用它们自身在它们准备好了之后。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const countdown = (value, fn, delay=1000) =&gt; &#123;</div><div class="line">fn(value)</div><div class="line">return (value &gt; 0) ?</div><div class="line">setTimeout(() =&gt; countdown(value-1, fn), delay) :</div><div class="line">value</div><div class="line">&#125;</div><div class="line">const log = value =&gt; console.log(value)</div><div class="line">countdown(10, log);</div></pre></td></tr></table></figure>
+<p>递归也是一个好的技术用来搜索数据结构。你能够用递归来迭代子文件夹，直到文件夹只包含文件。你能够使用递归来迭代HTML DOM直到找到不包含任何子元素的元素。</p>
+<h3 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h3><p>函数式编程将它们的逻辑碎裂为小的只关注特定任务的纯函数。最终，你需要将这些小函数放到一起。详细的说，你可能需要组合它们，串联或并行地调用它们，或者将它们组合到一个更大的函数中，直到你最后得到一个应用。</p>
+<p>组合有许多种不同的实现，模式和技术。你可能熟悉的一种就是链接。在JavaScript中，函数能使用点连接符链接起来，作用在前一个函数的返回值上。</p>
+<p>字符串有一个replace方法。这个方法返回了一个模板字符串，它也有一个replace方法。因此，我们能使用点操作符链接起来replace方法来转换一个字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const template = &quot;hh:mm:ss tt&quot;</div><div class="line">const clockTime = template.replace(&quot;hh&quot;, &quot;03&quot;)</div><div class="line">.replace(&quot;mm&quot;, &quot;33&quot;)</div><div class="line">.replace(&quot;ss&quot;, &quot;33&quot;)</div><div class="line">.replace(&quot;tt&quot;, &quot;PM&quot;)</div><div class="line">console.log(clockTime)</div><div class="line"></div><div class="line">// &quot;03:33:33 PM&quot;</div></pre></td></tr></table></figure>
+<p>链接是组合技术的一种。组合的目标就是“通过组合小的函数来产生一个higher order函数”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const both = date =&gt; appendAMPM(civilianHours(date))</div></pre></td></tr></table></figure>
+<p>both函数是一个函数，它传递一个值到两个函数中。civilianHours的输出变成了appendAMPM的输入，而且我们能改变数据，使用两个函数组合成一个的函数。然而，这个语法很难理解，因此不容易维护和扩展。当我们需要将一个值通过20个函数的时候，到底放生了什么呢？</p>
+<p>一个更高雅的方法就是创建一个higher order函数，我们能使用它来组合函数到一个更大的函数中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const both = compose(</div><div class="line">  civilianHours,</div><div class="line">  appendAMPM</div><div class="line">)</div><div class="line"></div><div class="line">both(new Date())</div></pre></td></tr></table></figure>
+<p>这个方法看起来更好。它更容易扩展，因为我们能在任意时候添加更多函数。这个方法也使得改变组合函数的顺序更容易了。</p>
+<p>compose函数是一个higher order函数。它接收函数作为参数，然后返回一个单一值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const compose = (...fns) =&gt;</div><div class="line">  (arg) =&gt;</div><div class="line">    fns.reduce(</div><div class="line">      (composed, f) =&gt; f(composed),</div><div class="line">      arg</div><div class="line">    )</div></pre></td></tr></table></figure>
+<h3 id="将所有的东西放在一起"><a href="#将所有的东西放在一起" class="headerlink" title="将所有的东西放在一起"></a>将所有的东西放在一起</h3><p>既然我们已经介绍了函数式编程的核心概念。让我们将这些概念来为我们工作，并且建立一个小型的JavaScript应用。</p>
+<p>因为JavaScript将会使你滑离函数式范例，而且你没有必要遵守这些规则，你需要保持专注。遵守这三个规则将帮助你到达目标。</p>
+<ol>
+<li>保持数据不可变</li>
+<li>保持函数的纯粹性：接收至少一个参数，返回数据或者函数</li>
+<li>使用递归代替循环（当可能的话）</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/language/" rel="tag">#language</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/05/Electron发布/" rel="next" title="Electron发布">
+                <i class="fa fa-chevron-left"></i> Electron发布
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/20/start/" rel="prev" title="开始就是现在">
+                开始就是现在 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/06/函数式编程/"
+           data-title="函数式编程" data-url="http://yoursite.com/2016/09/06/函数式编程/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="李学轩" />
+          <p class="site-author-name" itemprop="name">李学轩</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/spiritholy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程"><span class="nav-number">1.</span> <span class="nav-text">函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变成函数式意味着什么"><span class="nav-number">1.1.</span> <span class="nav-text">变成函数式意味着什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令式-VS-声明式"><span class="nav-number">1.2.</span> <span class="nav-text">命令式 VS 声明式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式概念"><span class="nav-number">1.3.</span> <span class="nav-text">函数式概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不变性"><span class="nav-number">1.4.</span> <span class="nav-text">不变性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纯粹函数"><span class="nav-number">1.5.</span> <span class="nav-text">纯粹函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据转换"><span class="nav-number">1.6.</span> <span class="nav-text">数据转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#higher-order函数"><span class="nav-number">1.7.</span> <span class="nav-text">higher order函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-number">1.8.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合"><span class="nav-number">1.9.</span> <span class="nav-text">组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将所有的东西放在一起"><span class="nav-number">1.10.</span> <span class="nav-text">将所有的东西放在一起</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李学轩</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lixuexuan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

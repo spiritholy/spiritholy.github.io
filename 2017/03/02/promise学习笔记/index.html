@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ES6," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="先从初始化开始不考虑复杂性，就从next主题开始">
+<meta name="description" content="什么是promisepromise是一种异步编程的解决方案，它将异步的回调函数写成链式的形式，使得代码更清晰，也避免掉了多层回调嵌套的复杂性。
+ES6中存在一个Promise类，由它就可以产生一个Promise实例。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开始就是现在">
-<meta property="og:url" content="http://yoursite.com/2017/02/20/start/index.html">
+<meta property="og:title" content="promise学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/03/02/promise学习笔记/index.html">
 <meta property="og:site_name" content="程序与生活">
-<meta property="og:description" content="先从初始化开始不考虑复杂性，就从next主题开始">
-<meta property="og:updated_time" content="2017-02-20T08:48:28.210Z">
+<meta property="og:description" content="什么是promisepromise是一种异步编程的解决方案，它将异步的回调函数写成链式的形式，使得代码更清晰，也避免掉了多层回调嵌套的复杂性。
+ES6中存在一个Promise类，由它就可以产生一个Promise实例。">
+<meta property="og:updated_time" content="2017-03-02T11:08:50.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开始就是现在">
-<meta name="twitter:description" content="先从初始化开始不考虑复杂性，就从next主题开始">
+<meta name="twitter:title" content="promise学习笔记">
+<meta name="twitter:description" content="什么是promisepromise是一种异步编程的解决方案，它将异步的回调函数写成链式的形式，使得代码更清晰，也避免掉了多层回调嵌套的复杂性。
+ES6中存在一个Promise类，由它就可以产生一个Promise实例。">
 
 
 
@@ -111,7 +114,7 @@
   };
 </script>
 
-  <title> 开始就是现在 | 程序与生活 </title>
+  <title> promise学习笔记 | 程序与生活 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -241,7 +244,7 @@
             
             
               
-                开始就是现在
+                promise学习笔记
               
             
           </h1>
@@ -253,8 +256,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-20T16:23:33+08:00" content="2017-02-20">
-              2017-02-20
+            <time itemprop="dateCreated" datetime="2017-03-02T18:07:20+08:00" content="2017-03-02">
+              2017-03-02
             </time>
           </span>
 
@@ -264,8 +267,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/20/start/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/20/start/" itemprop="commentsCount"></span>
+                <a href="/2017/03/02/promise学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/02/promise学习笔记/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -288,10 +291,40 @@
       
 
       
-        <h2 id="先从初始化开始"><a href="#先从初始化开始" class="headerlink" title="先从初始化开始"></a>先从初始化开始</h2><p>不考虑复杂性，就从next主题开始</p>
+        <h2 id="什么是promise"><a href="#什么是promise" class="headerlink" title="什么是promise"></a>什么是promise</h2><p>promise是一种异步编程的解决方案，它将异步的回调函数写成链式的形式，使得代码更清晰，也避免掉了多层回调嵌套的复杂性。</p>
+<p>ES6中存在一个<code>Promise</code>类，由它就可以产生一个Promise实例。</p>
 <a id="more"></a>
-<h2 id="路遥知马力"><a href="#路遥知马力" class="headerlink" title="路遥知马力"></a>路遥知马力</h2><p>点点的坚持才能产生价值</p>
-<h2 id="不满足现状"><a href="#不满足现状" class="headerlink" title="不满足现状"></a>不满足现状</h2><p>保持学习的心，慢慢完善一个自己的主题</p>
+<h2 id="生成和使用Promise"><a href="#生成和使用Promise" class="headerlink" title="生成和使用Promise"></a>生成和使用Promise</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var promise = new Promise(function(resolve, reject) &#123;</div><div class="line">  if (成功)</div><div class="line">    resolve(value)</div><div class="line">  if (失败)</div><div class="line">    reject(error)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>构造一个Promise对象，需要传入一个函数，这个函数接收2个参数<code>resolve</code>，<code>reject</code>，这两个参数都为函数，都由Promise自己提供。</p>
+<p>Promise有一个初始状态<code>Pending</code>，这个时候Promise在等待异步事件的返回，在我们传入的函数中，需要我们判断异步事件的成功和失败，成功的情况下，调用<code>resolve</code>，Promise会将状态变为<code>Resolved</code>，失败的情况下，调用<code>reject</code>，Promise的状态会变为<code>Reject</code>。</p>
+<p>现在来使用一下Promise</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">promise.then(function(value) &#123;</div><div class="line">  &lt;!-- 做回调成功后的事情 --&gt;</div><div class="line">&#125;, function(error) &#123;</div><div class="line">  &lt;!-- 做回调失败后的事情 --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Promise有一个原型方法<code>then</code>，它就是用来处理回调的，它接收2个参数，第一个为成功后的回调，第二个为失败后的回调。</p>
+<p>在异步事件中，在判断异步事件成功后，Promise的状态变为<code>Resolved</code>后，成功回调就会被调用，否则就是失败，失败回调会被调用。</p>
+<p>第二个参数是可选的，即可以不处理失败回调。</p>
+<p>在Promise构造的时候，<code>resolve</code>可以传递一个值过来，这个value就是在then的成功回调中的value参数，同理，<code>reject</code>也可以传递一个值到then的失败回调中，一般这个值是一个<code>Error</code>对象。</p>
+<h2 id="Promise的应用"><a href="#Promise的应用" class="headerlink" title="Promise的应用"></a>Promise的应用</h2><p>在JavaScript中，用得最多的异步编程的情况就是ajax请求了。</p>
+<p>使用传统的jQuery的ajax方法的使用时这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.get(&apos;url&apos;, function() &#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>在我们需要在处理完一个ajax后再请求一个ajax的情况下，我们就得嵌套起来写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$.get(&apos;url&apos;, function() &#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">  $.get(&apos;anotherUrl&apos;, function() &#123;</div><div class="line">    &lt;!-- 处理回调 --&gt;</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>如果用一个实现了Promise的ajax库来写的话，是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">request.get(&apos;url&apos;).then(function() &#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">  return request.get(&apos;anotherUrl&apos;)</div><div class="line">&#125;).then(function() &#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>以上代码中<code>request.get()</code>返回的就是一个Promise对象，最后它的程序是链式的，不用担心多层嵌套的情况下代码的可读性了。</p>
+<h2 id="还有什么更多特性吗？"><a href="#还有什么更多特性吗？" class="headerlink" title="还有什么更多特性吗？"></a>还有什么更多特性吗？</h2><p>Promise有一个原型方法<code>catch</code>，可以捕获到promise运行中的错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">promise.then(function(value) &#123;&#125;).catch(function(err) &#123;</div><div class="line">  &lt;!-- 处理错误 --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>使用catch的情况下，就没必要写失败的回调了，这时候如果异步失败的话程序就会到catch中。</p>
+<p>如果有多个异步链式请求的话</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.then().then().then().catch()</div></pre></td></tr></table></figure>
+<p>catch能捕捉到前面所有的promise的错误。</p>
+<p>更多功能还有：</p>
+<ol>
+<li><p>Promise.all([p1, p2, …])，可以包装多个Promise对象生成一个新的Promise对象，这个对象的回调只有在参数中的所有Promise都成功回调后才会调用成功回调，或者在参数中Promise中有一个失败后才调用失败回调。</p>
+</li>
+<li><p>Promise.race([p1, p2, …])，也是包装多个Promise对象生成一个新的Promise对象，这个对象的回调会在这多个Promise中有一个成功的情况下调用成功回调，否则会调用失败回调。</p>
+</li>
+</ol>
+<p>Promise还有更多实用的功能，不多赘述，这篇文章学习自<a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">阮一峰的ES6教程</a>，里面还有更详细的功能说明。</p>
 
       
     </div>
@@ -311,22 +344,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ES6/" rel="tag">#ES6</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/06/函数式编程/" rel="next" title="函数式编程">
-                <i class="fa fa-chevron-left"></i> 函数式编程
+              <a href="/2017/02/27/设置node环境变量遇到的一个小问题/" rel="next" title="设置node环境变量遇到的一个小问题">
+                <i class="fa fa-chevron-left"></i> 设置node环境变量遇到的一个小问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/27/设置node环境变量遇到的一个小问题/" rel="prev" title="设置node环境变量遇到的一个小问题">
-                设置node环境变量遇到的一个小问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -352,8 +387,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/20/start/"
-           data-title="开始就是现在" data-url="http://yoursite.com/2017/02/20/start/">
+      <div class="ds-thread" data-thread-key="2017/03/02/promise学习笔记/"
+           data-title="promise学习笔记" data-url="http://yoursite.com/2017/03/02/promise学习笔记/">
       </div>
     
   </div>
@@ -448,7 +483,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#先从初始化开始"><span class="nav-number">1.</span> <span class="nav-text">先从初始化开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路遥知马力"><span class="nav-number">2.</span> <span class="nav-text">路遥知马力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不满足现状"><span class="nav-number">3.</span> <span class="nav-text">不满足现状</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是promise"><span class="nav-number">1.</span> <span class="nav-text">什么是promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成和使用Promise"><span class="nav-number">2.</span> <span class="nav-text">生成和使用Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise的应用"><span class="nav-number">3.</span> <span class="nav-text">Promise的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#还有什么更多特性吗？"><span class="nav-number">4.</span> <span class="nav-text">还有什么更多特性吗？</span></a></li></ol></div>
             
           </div>
         </section>

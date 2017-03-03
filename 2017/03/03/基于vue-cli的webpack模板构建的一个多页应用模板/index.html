@@ -1,0 +1,660 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="webpack," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="vue-cli提供的webpack模板，默认是一个单页应用的模板，它只有一个入口文件，构建后也是生成一个html文件，但我可能会遇到项目并不是一个单页应用，比如一个网站，比如一个博客，但是我也希望利用vue的组件化开发，而不想写重复的代码。
+公司最近要将一个之前的一个管理系统添加许多新页面和功能，我打算用vue来完成这些新的页面，利用vue项目的工程结构，更加能使得代码可维护和可重用。但是系统之前">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于vue-cli的webpack模板构建的一个多页应用模板">
+<meta property="og:url" content="http://yoursite.com/2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/index.html">
+<meta property="og:site_name" content="程序与生活">
+<meta property="og:description" content="vue-cli提供的webpack模板，默认是一个单页应用的模板，它只有一个入口文件，构建后也是生成一个html文件，但我可能会遇到项目并不是一个单页应用，比如一个网站，比如一个博客，但是我也希望利用vue的组件化开发，而不想写重复的代码。
+公司最近要将一个之前的一个管理系统添加许多新页面和功能，我打算用vue来完成这些新的页面，利用vue项目的工程结构，更加能使得代码可维护和可重用。但是系统之前">
+<meta property="og:image" content="http://yoursite.com/2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/img1.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/img2.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/extract-css.png">
+<meta property="og:updated_time" content="2017-03-03T12:46:07.571Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于vue-cli的webpack模板构建的一个多页应用模板">
+<meta name="twitter:description" content="vue-cli提供的webpack模板，默认是一个单页应用的模板，它只有一个入口文件，构建后也是生成一个html文件，但我可能会遇到项目并不是一个单页应用，比如一个网站，比如一个博客，但是我也希望利用vue的组件化开发，而不想写重复的代码。
+公司最近要将一个之前的一个管理系统添加许多新页面和功能，我打算用vue来完成这些新的页面，利用vue项目的工程结构，更加能使得代码可维护和可重用。但是系统之前">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/img1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 基于vue-cli的webpack模板构建的一个多页应用模板 | 程序与生活 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">程序与生活</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                基于vue-cli的webpack模板构建的一个多页应用模板
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-03T18:25:59+08:00" content="2017-03-03">
+              2017-03-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>vue-cli提供的webpack模板，默认是一个单页应用的模板，它只有一个入口文件，构建后也是生成一个html文件，但我可能会遇到项目并不是一个单页应用，比如一个网站，比如一个博客，但是我也希望利用vue的组件化开发，而不想写重复的代码。</p>
+<p>公司最近要将一个之前的一个管理系统添加许多新页面和功能，我打算用vue来完成这些新的页面，利用vue项目的工程结构，更加能使得代码可维护和可重用。但是系统之前都是一个页面一个html，并不是单页应用，所以为了与之前保持一致，我需要一个能生成多页应用的vue模板。</p>
+<p>源码请查看<a href="https://github.com/spiritholy/vue2-multipage-template" target="_blank" rel="external">https://github.com/spiritholy/vue2-multipage-template</a></p>
+<a id="more"></a>
+<h2 id="在webpack配置中定义多个入口"><a href="#在webpack配置中定义多个入口" class="headerlink" title="在webpack配置中定义多个入口"></a>在webpack配置中定义多个入口</h2><p>首先在config文件夹中写一个pages.js文件，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = [<span class="string">'page1'</span>, <span class="string">'page2'</span>];</div></pre></td></tr></table></figure>
+<p>在这里配置你的工程需要的所有页面的名字。</p>
+<p>然后将这个配置写入config文件夹的index.js的配置里面，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">build: &#123;</div><div class="line">  <span class="attr">env</span>: <span class="built_in">require</span>(<span class="string">'./prod.env'</span>),</div><div class="line">  <span class="attr">index</span>: path.resolve(__dirname, <span class="string">'../dist/index.html'</span>),</div><div class="line">  <span class="attr">assetsRoot</span>: path.resolve(__dirname, <span class="string">'../dist'</span>),</div><div class="line">  <span class="attr">assetsSubDirectory</span>: <span class="string">'static'</span>,</div><div class="line">  <span class="attr">assetsPublicPath</span>: <span class="string">'./'</span>,</div><div class="line">  <span class="attr">productionSourceMap</span>: <span class="literal">false</span>,</div><div class="line">  <span class="comment">// Gzip off by default as many popular static hosts such as</span></div><div class="line">  <span class="comment">// Surge or Netlify already gzip all static assets for you.</span></div><div class="line">  <span class="comment">// Before setting to `true`, make sure to:</span></div><div class="line">  <span class="comment">// npm install --save-dev compression-webpack-plugin</span></div><div class="line">  productionGzip: <span class="literal">false</span>,</div><div class="line">  <span class="attr">productionGzipExtensions</span>: [<span class="string">'js'</span>, <span class="string">'css'</span>],</div><div class="line">  <span class="comment">// Run the build command with an extra argument to</span></div><div class="line">  <span class="comment">// View the bundle analyzer report after build finishes:</span></div><div class="line">  <span class="comment">// `npm run build --report`</span></div><div class="line">  <span class="comment">// Set to `true` or `false` to always turn it on or off</span></div><div class="line">  bundleAnalyzerReport: process.env.npm_config_report,</div><div class="line"></div><div class="line">  <span class="attr">pages</span>: pages <span class="comment">// 多页面配置写在这里</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后在<code>webpack.base.conf.js</code>中配置多个入口</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> config = <span class="built_in">require</span>(<span class="string">'../config'</span>)</div><div class="line"></div><div class="line"><span class="comment">// 配置多个入口文件</span></div><div class="line">  entry: (<span class="function"><span class="keyword">function</span> <span class="title">entries</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> entries = &#123;&#125;</div><div class="line">    config.build.pages.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</div><div class="line">      entries[item] = <span class="string">`./src/entries/<span class="subst">$&#123;item&#125;</span>.js`</span></div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> entries</div><div class="line">  &#125;)(),</div></pre></td></tr></table></figure>
+<p>这样每个文件的js入口配置就设置好了</p>
+<p>在这个设置中，我把入口文件的目录设置在了<code>src/entries/</code>中，所以需要在该文件夹内创建所有需要的入口js文件，不然webpack无法跑通。</p>
+<img src="/2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/img1.png" alt="在'src/entries/下创建入口js文件'" title="在'src/entries/下创建入口js文件'">
+<h2 id="使用html-webpack-plugin来创建多个html"><a href="#使用html-webpack-plugin来创建多个html" class="headerlink" title="使用html-webpack-plugin来创建多个html"></a>使用<code>html-webpack-plugin</code>来创建多个html</h2><p>这时我有了多个js入口文件，但是还缺少构建后应该生成的多个对应的html文件。我可以使用webpack的插件<code>html-webpack-plugin</code>来完成这个任务。</p>
+<p><code>html-webpack-plugin</code>是一个用来在webpack中动态生成html文件的插件，原本的vue模板中已经使用过了，可以在<code>webpack.prod.conf.js</code>中看到：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">  <span class="attr">filename</span>: config.build.index,</div><div class="line">  <span class="attr">template</span>: <span class="string">'index.html'</span>,</div><div class="line">  <span class="attr">inject</span>: <span class="literal">true</span>,</div><div class="line">  <span class="attr">minify</span>: &#123;</div><div class="line">    <span class="attr">removeComments</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">removeAttributeQuotes</span>: <span class="literal">true</span></div><div class="line">    <span class="comment">// more options:</span></div><div class="line">    <span class="comment">// https://github.com/kangax/html-minifier#options-quick-reference</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// necessary to consistently work with multiple chunks via CommonsChunkPlugin</span></div><div class="line">  chunksSortMode: <span class="string">'dependency'</span></div><div class="line">&#125;),</div></pre></td></tr></table></figure>
+<p>在原来的vue模板中使用这个插件就是为了在每一次重新打包的过程中，由于生成的文件名的hash值会改变，每一次都去改变index.html的引用会很麻烦，<code>html-webpack-plugin</code>就能很好的帮助解决这个麻烦事，它自动生成html并插入打包后的引用到html中。</p>
+<p>现在我要生成多个html，就需要在配置中写入多个<code>html-webpack-plugin</code>的实例。我把生成多个实例的代码写在了util.js文件中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</div><div class="line"></div><div class="line">exports.createHtmlWebpackPlugins = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> config.build.pages.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">var</span> obj = process.env.NODE_ENV === <span class="string">'production'</span> ? &#123;</div><div class="line">      <span class="attr">filename</span>: path.join(__dirname, <span class="string">`../dist/<span class="subst">$&#123;item&#125;</span>.html`</span>),</div><div class="line">      <span class="attr">template</span>: <span class="string">'index.html'</span>,</div><div class="line">      <span class="attr">inject</span>: <span class="literal">true</span>,</div><div class="line">      <span class="attr">chunks</span>: [item, <span class="string">'vendor'</span>, <span class="string">'manifest'</span>],</div><div class="line">      <span class="attr">minify</span>: &#123;</div><div class="line">        <span class="attr">removeComments</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">removeAttributeQuotes</span>: <span class="literal">true</span></div><div class="line">        <span class="comment">// more options:</span></div><div class="line">        <span class="comment">// https://github.com/kangax/html-minifier#options-quick-reference</span></div><div class="line">      &#125;,</div><div class="line">      <span class="comment">// necessary to consistently work with multiple chunks via CommonsChunkPlugin</span></div><div class="line">      chunksSortMode: <span class="string">'dependency'</span></div><div class="line">    &#125; : &#123;</div><div class="line">      <span class="attr">filename</span>: <span class="string">`<span class="subst">$&#123;item&#125;</span>.html`</span>,</div><div class="line">      <span class="attr">template</span>: <span class="string">'index.html'</span>,</div><div class="line">      <span class="attr">inject</span>: <span class="literal">true</span>,</div><div class="line">      <span class="attr">chunks</span>: [item, <span class="string">'vendor'</span>, <span class="string">'manifest'</span>],</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> HtmlWebpackPlugin(obj)</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这段代码中，我读取了之前配置的所有页面的名字，然后生成以这些名字命名的html。</p>
+<p>这里考虑到开发模式和生产模式的不同，所以做了判断。</p>
+<p>在这里有一段与原本的模板配置不同的配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chunks: [item, <span class="string">'vendor'</span>, <span class="string">'manifest'</span>]</div></pre></td></tr></table></figure>
+<p>这段配置是说明每一个html要引用数组中的这一些打包后的块，每一个文件当然是包含它的入口文件打包出来的js和公共的vendor和manifest文件。</p>
+<p>然后在<code>webpack.prod.conf.js</code>和<code>webpack.dev.conf.js</code>中使用新的<code>html-webpack-plugin</code>的配置，删除掉旧的配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.prod.conf.js</span></div><div class="line">plugins: [</div><div class="line">  <span class="comment">// 其它的配置</span></div><div class="line"></div><div class="line">  <span class="comment">// new HtmlWebpackPlugin(&#123;</span></div><div class="line">  <span class="comment">//   filename: config.build.index,</span></div><div class="line">  <span class="comment">//   template: 'index.html',</span></div><div class="line">  <span class="comment">//   inject: true,</span></div><div class="line">  <span class="comment">//   minify: &#123;</span></div><div class="line">  <span class="comment">//     removeComments: true,</span></div><div class="line">  <span class="comment">//     collapseWhitespace: true,</span></div><div class="line">  <span class="comment">//     removeAttributeQuotes: true</span></div><div class="line">  <span class="comment">//     // more options:</span></div><div class="line">  <span class="comment">//     // https://github.com/kangax/html-minifier#options-quick-reference</span></div><div class="line">  <span class="comment">//   &#125;,</span></div><div class="line">  <span class="comment">//   // necessary to consistently work with multiple chunks via CommonsChunkPlugin</span></div><div class="line">  <span class="comment">//   chunksSortMode: 'dependency'</span></div><div class="line">  <span class="comment">// &#125;),</span></div><div class="line">].concat(utils.createHtmlWebpackPlugins())</div><div class="line"></div><div class="line"><span class="comment">// webpack.prod.dev.js</span></div><div class="line">plugins: [</div><div class="line">  <span class="comment">// 其它的配置</span></div><div class="line"></div><div class="line">  <span class="comment">// new HtmlWebpackPlugin(&#123;</span></div><div class="line">  <span class="comment">//   filename: 'index.html',</span></div><div class="line">  <span class="comment">//   template: 'index.html',</span></div><div class="line">  <span class="comment">//   inject: true</span></div><div class="line">  <span class="comment">// &#125;),</span></div><div class="line">  <span class="keyword">new</span> FriendlyErrorsPlugin(),</div><div class="line">].concat(utils.createHtmlWebpackPlugins())</div></pre></td></tr></table></figure>
+<p>这里直接使用concat方法将数组链接起来。</p>
+<p>这下基本功能就搞定啦。</p>
+<h2 id="修改下src目录下的原入口文件"><a href="#修改下src目录下的原入口文件" class="headerlink" title="修改下src目录下的原入口文件"></a>修改下src目录下的原入口文件</h2><p>原入口文件main.js这下没用了，但是每一个页面还是要首先new一个Vue的实例出来啊，我就修改了一下main.js文件，让它成为我的新入口文件的依赖。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="comment">// import App from './App'</span></div><div class="line"></div><div class="line">Vue.config.productionTip = <span class="literal">false</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params">page</span>) </span>&#123;</div><div class="line">  <span class="comment">/* eslint-disable no-new */</span></div><div class="line">  <span class="keyword">new</span> Vue(&#123;</div><div class="line">    <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="params">c</span> =&gt;</span> c(page),</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>让它导出一个函数，这个函数接收page作为根组件节点。</p>
+<p>于是我的入口文件都是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> createVue <span class="keyword">from</span> <span class="string">'../main'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> page1 <span class="keyword">from</span> <span class="string">'../pages/page1'</span></div><div class="line"></div><div class="line">createVue(page1)</div></pre></td></tr></table></figure>
+<p>当然以上只是一种写法，src里面如何编写多入口js文件全凭各人喜好。</p>
+<h2 id="运行起来看看效果"><a href="#运行起来看看效果" class="headerlink" title="运行起来看看效果"></a>运行起来看看效果</h2><p>依然使用<code>npm run dev</code>命令来跑起测试环境，这时服务跑起后发现显示<code>Cannot GET /</code>，这是因为现在又多个html，所以没有默认的html，现在只需要在url后加上/page1.html等等配置的文件名就可以看到各个页面了。然后查看一下各个文件的加载情况</p>
+<img src="/2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/img2.png" alt="文件加载的情况" title="文件加载的情况">
+<p>确实是加载了它们自己的js文件，没有跟其它的文件的js弄混。</p>
+<h2 id="还有什么问题"><a href="#还有什么问题" class="headerlink" title="还有什么问题"></a>还有什么问题</h2><p>在webpack的配置中由于使用了<code>CommonsChunkPlugin</code>插件，可以把公共的js提取到<code>vendor.js</code>中，这样最后打包出来的<code>vendor.js</code>所有html都可以引用。</p>
+<p>但是我发现如果所有页面都使用了同一个css样式库的话，比如bootstrap，最后打包出来的css文件中每一个文件都包含一遍bootstrap代码。这样其实是不好的，应该让每一个html都引用一个相同的bootstrap的文件，这样可以使浏览器使用缓存功能，减少页面加载的时间。</p>
+<p>接下来讲一下我是如何将公共的css提取出来的。</p>
+<p>这里我只考虑外部样式库作为公共代码，其余同理。</p>
+<p>首先我发现<code>CommonsChunkPlugin</code>插件是不支持提取css代码的，原先的css代码都是通过<code>extract-text-webpack-plugin</code>插件提取到一个文件中的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> ExtractTextPlugin(&#123;</div><div class="line">  <span class="attr">filename</span>: utils.assetsPath(<span class="string">'css/[name].[contenthash].css'</span>)</div><div class="line">&#125;),</div></pre></td></tr></table></figure>
+<p>这个代码就是将每个入口文件中的依赖的css提取到一个文件中</p>
+<p>我查看了一下这个插件的官方文档，发现了这么一个功能</p>
+<img src="/2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/extract-css.png" alt="extract-text-webpack-plugin的官网示例" title="extract-text-webpack-plugin的官网示例">
+<p>在这个示例中显示可以创造多个<code>extract-text-webpack-plugin</code>的实例，然后对它们分别配置不同的规则，这样就能导出多个文件。</p>
+<p>首先先写一个生成两个<code>extract-text-webpack-plugin</code>实例的函数，一个实例导出自定义的css，一个实例导出公共的css</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">'extract-text-webpack-plugin'</span>)</div><div class="line"></div><div class="line">exports.vendorExtractTextPlugin = <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'css/vendor.css'</span>)</div><div class="line"></div><div class="line">exports.customExtractTextPlugin = <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'css/[name].css'</span>)</div></pre></td></tr></table></figure>
+<p>原本的css-loader的配置是在<code>utils.js</code>文件中用函数生成的，<code>exports.styleLoaders</code>和<code>exports.cssLoaders</code>。这里修改这两个函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ExtractCss = <span class="built_in">require</span>(<span class="string">'./extract-css'</span>);</div><div class="line"></div><div class="line">exports.cssLoaders = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">  options = options || &#123;&#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> cssLoader = &#123;</div><div class="line">    <span class="attr">loader</span>: <span class="string">'css-loader'</span>,</div><div class="line">    <span class="attr">options</span>: &#123;</div><div class="line">      <span class="attr">minimize</span>: process.env.NODE_ENV === <span class="string">'production'</span>,</div><div class="line">      <span class="attr">sourceMap</span>: options.sourceMap</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// generate loader string to be used with extract text plugin</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">generateLoaders</span> (<span class="params">loader, loaderOptions</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> loaders = [cssLoader]</div><div class="line">    <span class="keyword">if</span> (loader) &#123;</div><div class="line">      loaders.push(&#123;</div><div class="line">        <span class="attr">loader</span>: loader + <span class="string">'-loader'</span>,</div><div class="line">        <span class="attr">options</span>: <span class="built_in">Object</span>.assign(&#123;&#125;, loaderOptions, &#123;</div><div class="line">          <span class="attr">sourceMap</span>: options.sourceMap</div><div class="line">        &#125;)</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Extract CSS when that option is specified</span></div><div class="line">    <span class="comment">// (which is the case during production build)</span></div><div class="line">    <span class="keyword">if</span> (options.extract) &#123;</div><div class="line">      <span class="keyword">return</span> ExtractCss.customExtractTextPlugin.extract(&#123;</div><div class="line">        <span class="attr">use</span>: loaders,</div><div class="line">        <span class="attr">fallback</span>: <span class="string">'vue-style-loader'</span></div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">return</span> [<span class="string">'vue-style-loader'</span>].concat(loaders)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// http://vuejs.github.io/vue-loader/en/configurations/extract-css.html</span></div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">css</span>: generateLoaders(),</div><div class="line">    <span class="attr">postcss</span>: generateLoaders(),</div><div class="line">    <span class="attr">less</span>: generateLoaders(<span class="string">'less'</span>),</div><div class="line">    <span class="attr">sass</span>: generateLoaders(<span class="string">'sass'</span>, &#123; <span class="attr">indentedSyntax</span>: <span class="literal">true</span> &#125;),</div><div class="line">    <span class="attr">scss</span>: generateLoaders(<span class="string">'sass'</span>),</div><div class="line">    <span class="attr">stylus</span>: generateLoaders(<span class="string">'stylus'</span>),</div><div class="line">    <span class="attr">styl</span>: generateLoaders(<span class="string">'stylus'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Generate loaders for standalone style files (outside of .vue)</span></div><div class="line">exports.styleLoaders = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> output = []</div><div class="line">  <span class="keyword">var</span> loaders = exports.cssLoaders(options)</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> extension <span class="keyword">in</span> loaders) &#123;</div><div class="line">    <span class="keyword">var</span> loader = loaders[extension]</div><div class="line">    output.push(&#123;</div><div class="line">      <span class="attr">test</span>: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\.'</span> + extension + <span class="string">'$'</span>),</div><div class="line">      <span class="attr">use</span>: loader,</div><div class="line">      <span class="attr">exclude</span>: process.env.NODE_ENV === <span class="string">'production'</span> ? [path.resolve(__dirname, <span class="string">'..'</span>, <span class="string">'node_modules'</span>)] : []</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span> (options.extract) &#123;</div><div class="line">    output.push(&#123;</div><div class="line">      <span class="attr">test</span>: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\.'</span> + <span class="string">'css'</span> + <span class="string">'$'</span>),</div><div class="line">      <span class="attr">enforce</span>: <span class="string">"pre"</span>,</div><div class="line">      <span class="attr">use</span>: ExtractCss.vendorExtractTextPlugin.extract(&#123;</div><div class="line">        <span class="attr">use</span>: &#123;</div><div class="line">          <span class="attr">loader</span>: <span class="string">'css-loader'</span>,</div><div class="line">          <span class="attr">options</span>: &#123;</div><div class="line">            <span class="attr">minimize</span>: process.env.NODE_ENV === <span class="string">'production'</span>,</div><div class="line">            <span class="attr">sourceMap</span>: options.sourceMap</div><div class="line">          &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">fallback</span>: <span class="string">'vue-style-loader'</span></div><div class="line">      &#125;),</div><div class="line">      <span class="attr">include</span>: [path.resolve(__dirname, <span class="string">'..'</span>, <span class="string">'node_modules'</span>)]</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> output</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里配置了在exclude node_modules文件夹中的css使用<code>customExtractTextPlugin</code>实例，所有node_modules文件夹中的依赖的css使用<code>vendorExtractTextPlugin</code>实例。</p>
+<p>然后在<code>webpack.prod.conf.js</code>中配置插件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">plugins: [</div><div class="line">  ExtractCss.vendorExtractTextPlugin,</div><div class="line">  ExtractCss.customExtractTextPlugin,</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>最后运行命令<code>npm run build</code>后可以看到打包后的css文件夹中，会多出一个<code>vendor.css</code>，这个文件将包含所有node_modules里依赖的css，而每个文件的css中就不会包含这个公共样式了。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag">#webpack</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/02/promise学习笔记/" rel="next" title="promise学习笔记">
+                <i class="fa fa-chevron-left"></i> promise学习笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/"
+           data-title="基于vue-cli的webpack模板构建的一个多页应用模板" data-url="http://yoursite.com/2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="李学轩" />
+          <p class="site-author-name" itemprop="name">李学轩</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/spiritholy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在webpack配置中定义多个入口"><span class="nav-number">1.</span> <span class="nav-text">在webpack配置中定义多个入口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用html-webpack-plugin来创建多个html"><span class="nav-number">2.</span> <span class="nav-text">使用html-webpack-plugin来创建多个html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改下src目录下的原入口文件"><span class="nav-number">3.</span> <span class="nav-text">修改下src目录下的原入口文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行起来看看效果"><span class="nav-number">4.</span> <span class="nav-text">运行起来看看效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#还有什么问题"><span class="nav-number">5.</span> <span class="nav-text">还有什么问题</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李学轩</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lixuexuan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

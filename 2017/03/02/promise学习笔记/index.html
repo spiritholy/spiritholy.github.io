@@ -92,7 +92,7 @@ ES6中存在一个Promise类，由它就可以产生一个Promise实例。">
 <meta property="og:site_name" content="程序与生活">
 <meta property="og:description" content="什么是promisepromise是一种异步编程的解决方案，它将异步的回调函数写成链式的形式，使得代码更清晰，也避免掉了多层回调嵌套的复杂性。
 ES6中存在一个Promise类，由它就可以产生一个Promise实例。">
-<meta property="og:updated_time" content="2017-03-02T11:08:50.470Z">
+<meta property="og:updated_time" content="2017-03-03T10:53:48.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="promise学习笔记">
 <meta name="twitter:description" content="什么是promisepromise是一种异步编程的解决方案，它将异步的回调函数写成链式的形式，使得代码更清晰，也避免掉了多层回调嵌套的复杂性。
@@ -294,28 +294,28 @@ ES6中存在一个Promise类，由它就可以产生一个Promise实例。">
         <h2 id="什么是promise"><a href="#什么是promise" class="headerlink" title="什么是promise"></a>什么是promise</h2><p>promise是一种异步编程的解决方案，它将异步的回调函数写成链式的形式，使得代码更清晰，也避免掉了多层回调嵌套的复杂性。</p>
 <p>ES6中存在一个<code>Promise</code>类，由它就可以产生一个Promise实例。</p>
 <a id="more"></a>
-<h2 id="生成和使用Promise"><a href="#生成和使用Promise" class="headerlink" title="生成和使用Promise"></a>生成和使用Promise</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var promise = new Promise(function(resolve, reject) &#123;</div><div class="line">  if (成功)</div><div class="line">    resolve(value)</div><div class="line">  if (失败)</div><div class="line">    reject(error)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="生成和使用Promise"><a href="#生成和使用Promise" class="headerlink" title="生成和使用Promise"></a>生成和使用Promise</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (成功)</div><div class="line">    resolve(value)</div><div class="line">  <span class="keyword">if</span> (失败)</div><div class="line">    reject(error)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>构造一个Promise对象，需要传入一个函数，这个函数接收2个参数<code>resolve</code>，<code>reject</code>，这两个参数都为函数，都由Promise自己提供。</p>
 <p>Promise有一个初始状态<code>Pending</code>，这个时候Promise在等待异步事件的返回，在我们传入的函数中，需要我们判断异步事件的成功和失败，成功的情况下，调用<code>resolve</code>，Promise会将状态变为<code>Resolved</code>，失败的情况下，调用<code>reject</code>，Promise的状态会变为<code>Reject</code>。</p>
 <p>现在来使用一下Promise</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">promise.then(function(value) &#123;</div><div class="line">  &lt;!-- 做回调成功后的事情 --&gt;</div><div class="line">&#125;, function(error) &#123;</div><div class="line">  &lt;!-- 做回调失败后的事情 --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  &lt;!-- 做回调成功后的事情 --&gt;</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">  &lt;!-- 做回调失败后的事情 --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Promise有一个原型方法<code>then</code>，它就是用来处理回调的，它接收2个参数，第一个为成功后的回调，第二个为失败后的回调。</p>
 <p>在异步事件中，在判断异步事件成功后，Promise的状态变为<code>Resolved</code>后，成功回调就会被调用，否则就是失败，失败回调会被调用。</p>
 <p>第二个参数是可选的，即可以不处理失败回调。</p>
 <p>在Promise构造的时候，<code>resolve</code>可以传递一个值过来，这个value就是在then的成功回调中的value参数，同理，<code>reject</code>也可以传递一个值到then的失败回调中，一般这个值是一个<code>Error</code>对象。</p>
 <h2 id="Promise的应用"><a href="#Promise的应用" class="headerlink" title="Promise的应用"></a>Promise的应用</h2><p>在JavaScript中，用得最多的异步编程的情况就是ajax请求了。</p>
 <p>使用传统的jQuery的ajax方法的使用时这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.get(&apos;url&apos;, function() &#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.get(<span class="string">'url'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>在我们需要在处理完一个ajax后再请求一个ajax的情况下，我们就得嵌套起来写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$.get(&apos;url&apos;, function() &#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">  $.get(&apos;anotherUrl&apos;, function() &#123;</div><div class="line">    &lt;!-- 处理回调 --&gt;</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$.get(<span class="string">'url'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">  $.get(<span class="string">'anotherUrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    &lt;!-- 处理回调 --&gt;</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>如果用一个实现了Promise的ajax库来写的话，是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">request.get(&apos;url&apos;).then(function() &#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">  return request.get(&apos;anotherUrl&apos;)</div><div class="line">&#125;).then(function() &#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">request.get(<span class="string">'url'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">  <span class="keyword">return</span> request.get(<span class="string">'anotherUrl'</span>)</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  &lt;!-- 处理回调  --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>以上代码中<code>request.get()</code>返回的就是一个Promise对象，最后它的程序是链式的，不用担心多层嵌套的情况下代码的可读性了。</p>
 <h2 id="还有什么更多特性吗？"><a href="#还有什么更多特性吗？" class="headerlink" title="还有什么更多特性吗？"></a>还有什么更多特性吗？</h2><p>Promise有一个原型方法<code>catch</code>，可以捕获到promise运行中的错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">promise.then(function(value) &#123;&#125;).catch(function(err) &#123;</div><div class="line">  &lt;!-- 处理错误 --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">  &lt;!-- 处理错误 --&gt;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>使用catch的情况下，就没必要写失败的回调了，这时候如果异步失败的话程序就会到catch中。</p>
 <p>如果有多个异步链式请求的话</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.then().then().then().catch()</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.then().then().then().catch()</div></pre></td></tr></table></figure>
 <p>catch能捕捉到前面所有的promise的错误。</p>
 <p>更多功能还有：</p>
 <ol>
@@ -362,6 +362,10 @@ ES6中存在一个Promise类，由它就可以产生一个Promise实例。">
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/03/基于vue-cli的webpack模板构建的一个多页应用模板/" rel="prev" title="基于vue-cli的webpack模板构建的一个多页应用模板">
+                基于vue-cli的webpack模板构建的一个多页应用模板 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -433,7 +437,7 @@ ES6中存在一个Promise类，由它就可以产生一个Promise实例。">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -443,7 +447,7 @@ ES6中存在一个Promise类，由它就可以产生一个Promise实例。">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

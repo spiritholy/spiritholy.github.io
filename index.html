@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spiritholy · 项目入口</title>
+    <style>
+      :root {
+        --bg: #0f1115;
+        --card: #181b22;
+        --card-hover: #1f232c;
+        --border: #262b36;
+        --text: #e8eaed;
+        --muted: #9aa3b2;
+        --accent: #6ea8fe;
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f6f7f9;
+          --card: #ffffff;
+          --card-hover: #ffffff;
+          --border: #e3e6ea;
+          --text: #1a1d21;
+          --muted: #5f6b7a;
+          --accent: #2f6fdb;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 4rem 1.5rem;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          "PingFang SC",
+          "Microsoft YaHei",
+          sans-serif;
+        line-height: 1.6;
+      }
+
+      .wrap {
+        max-width: 780px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 0.25rem;
+        font-size: 1.9rem;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        margin: 0 0 2.5rem;
+        color: var(--muted);
+      }
+
+      .grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      }
+
+      .card {
+        display: block;
+        padding: 1.25rem 1.35rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        text-decoration: none;
+        color: inherit;
+        transition:
+          transform 0.15s ease,
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent);
+        background: var(--card-hover);
+      }
+
+      .card h2 {
+        margin: 0 0 0.4rem;
+        font-size: 1.1rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .card .arrow {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      footer {
+        margin-top: 3rem;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>spiritholy</h1>
+      <p class="subtitle">项目入口</p>
+
+      <div class="grid" id="projects">
+        <!-- 由下方脚本渲染；新增项目只需在列表里加一项 -->
+      </div>
+
+      <footer>
+        源码托管于
+        <a href="https://github.com/spiritholy/spiritholy.github.io">GitHub</a>
+      </footer>
+    </div>
+
+    <script>
+      // 新增项目：往数组里加一项即可，href 用相对路径（勿以 / 开头）。
+      const projects = [
+        {
+          name: "History River",
+          desc: "历史长河 · 时间线可视化",
+          href: "history-river/",
+        },
+      ];
+
+      document.getElementById("projects").innerHTML = projects
+        .map(
+          (p) => `
+          <a class="card" href="${p.href}">
+            <h2>${p.name} <span class="arrow">↗</span></h2>
+            <p>${p.desc}</p>
+          </a>`,
+        )
+        .join("");
+    </script>
+  </body>
+</html>
